@@ -3,15 +3,22 @@ body{
 }
 .wrapper{
     margin: 0px auto;
-    margin-top: 30px;
-    padding: 60px;
+    margin-top: 10px;
     max-width: 1160px;
     background-color: #312d2d;
     color: white;
     border-radius: 8px;
 }
+.back img{
+    max-width: 1160px;
+    border-radius: 8px;
+}
 .wrapper h1{
   font-size: 56px;
+}
+.logo{
+    max-width: 1240px;
+    margin: 0px auto;
 }
 .logo img{
     width: 270px
@@ -23,14 +30,19 @@ body{
     margin-bottom: 30px;
     align-items: center;
 }
-.gridColumn{
-    max-width: 577px;
+.welcome-text{
+    max-width: 677px;
     font-family: Roboto;
     font-weight:  500px;
-    font-size: 36px;
+    font-size: 46px;
     text-align: center;
     padding: 10px;
-
+    position: absolute;
+    top: 265px;
+    right: 650px;
+    backdrop-filter: blur(10px);
+    min-width: 500px;
+border-radius: 50%;
 }
 .gridColumn img{
     max-width: 377px;

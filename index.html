@@ -25,6 +25,18 @@ let wrapper = document.createElement('div');
 wrapper.classList.add("wrapper");
 document.body.append(wrapper);
 
+let back = document.createElement('div');
+back.innerHTML = '<img src="images/bg.jpg" alt="books" ></img>';
+back.classList.add("back");
+
+let text = document.createElement('div');
+text.innerHTML = '<h1>WELCOME <br> to  Book Shop</h1>';
+text.classList.add("welcome-text");
+back.append(text);
+
+
+wrapper.append(back);
+
 let grid = document.createElement('div');
 grid.classList.add("grid");
 let gridCol = document.createElement('div');
@@ -41,9 +53,9 @@ grid.append(gridCol2);
 
 wrapper.append(grid);
 
-gridCol.innerHTML = '<img src="images/main.jpeg" alt="books" ></img>';
+gridCol.innerHTML = '<img src="images/bg.jpg" alt="books" ></img>';
 gridCol1.innerHTML = '<h1>WELCOME <br> to <br> Book Shop</h1>';
-gridCol2.innerHTML = '<img src="images/main.jpeg" alt="books" ></img>';
+gridCol2.innerHTML = '<img src="./images/bg.jpg" alt="books" ></img>';
 
 let main = document.createElement('main');
 document.body.append(main);
@@ -151,5 +163,7 @@ books.forEach(book=>{
   let card = createCatalog(book);
   mainGrid.append(card);
 });
+
+
 </script>
 </html>
