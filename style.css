@@ -1,0 +1,55 @@
+body{
+    background-color: #242121;
+}
+.wrapper{
+    margin: 0px auto;
+    margin-top: 30px;
+    padding: 60px;
+    max-width: 1160px;
+    background-color: #312d2d;
+    color: white;
+    border-radius: 8px;
+}
+.wrapper h1{
+  font-size: 56px;
+}
+.logo img{
+    width: 270px
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 9px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.gridColumn{
+    max-width: 577px;
+    font-family: Roboto;
+    font-weight:  500px;
+    font-size: 36px;
+    text-align: center;
+    padding: 10px;
+
+}
+.gridColumn img{
+    max-width: 377px;
+    border-radius: 5px;
+    transform: skew();
+}
+
+.main-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0px auto;
+    max-width: 1160px;
+}
+.bookCard{
+    padding: 20px;
+    margin: 10px;
+    border: 0.5px solid burlywood;
+    border-radius: 6px;
+    max-height: 300px;
+    max-width: 250px;
+    overflow: auto;
+}
