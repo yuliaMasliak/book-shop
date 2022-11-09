@@ -40,9 +40,6 @@ let gridCol = document.createElement('div');
 let gridCol1 = document.createElement('div');
 let gridCol2 = document.createElement('div');
 
-gridCol.classList.add("gridColumn");
-gridCol1.classList.add("gridColumn");
-gridCol2.classList.add("gridColumn");
 
 grid.append(gridCol);
 grid.append(gridCol1);
@@ -139,7 +136,7 @@ function createCatalog(book){
   btnBuy.innerHTML = "Add To Cart";
   btnBuy.classList.add("btn-buy");
   let cardHeading = document.createElement('h2');
-  cardHeading.innerHTML = `${book.title}`;
+  cardHeading.innerHTML = `${book.title} <p>${book.author}</p>`;
   cardHeading.classList.add("card-heading");
   let price = document.createElement('h3');
   price.innerHTML = `$ ${book.price}`;
@@ -149,7 +146,6 @@ function createCatalog(book){
   btnLearn.classList.add("btn-learn");
   bookCard.insertAdjacentHTML('beforeend', `<img>${book.imageLink}</img>`);
   bookCard.append(cardHeading);
-  bookCard.insertAdjacentHTML('beforeend', `<p>${book.author}</p>`);
   bookCard.append(price);
   bookCard.append(btnBuy);
   bookCard.append(btnLearn);
