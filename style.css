@@ -47,9 +47,48 @@ body{
 .bookCard{
     padding: 20px;
     margin: 10px;
-    border: 0.5px solid burlywood;
     border-radius: 6px;
-    max-height: 300px;
-    max-width: 250px;
-    overflow: auto;
+    font-family: Roboto;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 100px;
+}
+.btn-buy{
+  height: 40px;
+  width: 130px;
+  border-radius: 7px;
+  background-color: #242121;
+  border: 1px solid #FFE787;
+  color: #FFE787;
+position: absolute;
+bottom: -55px;
+left: 70px;
+font-family: Roboto;
+font-weight: 500;
+font-size: 16px;
+margin-top: 15px;
+}
+
+.card-heading{
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 20px;
+
+}
+.btn-buy:hover{
+background-color: #FFE787;
+  border: 1px solid #FFE787;
+  color: #242121;
+  cursor: pointer
+}
+.price{
+font-family: Roboto;
+font-weight: 500;
+font-size: 22px;
+color:#faf1ce;
+position: absolute;
+bottom: -30px;
+left: 110px
+
 }
