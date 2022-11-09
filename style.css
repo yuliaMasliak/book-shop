@@ -4,6 +4,7 @@ body{
 .wrapper{
     margin: 0px auto;
     margin-top: 10px;
+    margin-bottom: 70px;
     max-width: 1160px;
     background-color: #312d2d;
     color: white;
@@ -27,8 +28,10 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border-radius: 9px;
-    margin-bottom: 30px;
     align-items: center;
+    font-family: Roboto;
+    text-align: center;
+    font-size: 24px;
 }
 .welcome-text{
     max-width: 677px;
@@ -44,15 +47,10 @@ body{
     min-width: 500px;
 border-radius: 50%;
 }
-.gridColumn img{
-    max-width: 377px;
-    border-radius: 5px;
-    transform: skew();
-}
 
 .main-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin: 0px auto;
     max-width: 1160px;
 }
@@ -66,41 +64,63 @@ border-radius: 50%;
     padding-bottom: 15px;
     margin-bottom: 100px;
 }
-.btn-buy{
-  height: 40px;
-  width: 130px;
-  border-radius: 7px;
-  background-color: #242121;
-  border: 1px solid #FFE787;
-  color: #FFE787;
-position: absolute;
-bottom: -55px;
-left: 70px;
-font-family: Roboto;
-font-weight: 500;
-font-size: 16px;
-margin-top: 15px;
-}
-
 .card-heading{
   font-family: Roboto;
   font-weight: 400;
   font-size: 20px;
 
 }
-.btn-buy:hover{
-background-color: #FFE787;
-  border: 1px solid #FFE787;
-  color: #242121;
-  cursor: pointer
-}
+
 .price{
 font-family: Roboto;
 font-weight: 500;
-font-size: 22px;
+font-size: 32px;
 color:#faf1ce;
 position: absolute;
-bottom: -30px;
-left: 110px
-
+bottom: -50px;
+left: 240px
 }
+.btn-buy{
+  height: 40px;
+  width: 130px;
+  border-radius: 7px;
+  background-color: #FFE787;
+  border: 1px solid #FFE787;
+  color: #242121;
+position: absolute;
+bottom: -70px;
+left: 140px;
+font-family: Roboto;
+font-weight: 500;
+font-size: 16px;
+margin-top: 15px;
+}
+
+.btn-buy:hover{
+background-color:  #242121;
+  border: 1px solid #FFE787;
+  color:  #FFE787;
+  cursor: pointer
+}
+.btn-learn{
+    height: 40px;
+    width: 130px;
+    border-radius: 7px;
+    background-color: #242121;
+    border: 1px solid #FFE787;
+    color: #FFE787;
+  position: absolute;
+  bottom: -70px;
+  left: 300px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 15px;
+  }
+
+  .btn-learn:hover{
+  background-color: #FFE787;
+    border: 1px solid #FFE787;
+    color: #242121;
+    cursor: pointer
+  }

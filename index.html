@@ -53,9 +53,7 @@ grid.append(gridCol2);
 
 wrapper.append(grid);
 
-gridCol.innerHTML = '<img src="images/bg.jpg" alt="books" ></img>';
-gridCol1.innerHTML = '<h1>WELCOME <br> to <br> Book Shop</h1>';
-gridCol2.innerHTML = '<img src="./images/bg.jpg" alt="books" ></img>';
+gridCol1.innerHTML = '<h2>BESTSELLERS</h2>';
 
 let main = document.createElement('main');
 document.body.append(main);
@@ -149,12 +147,15 @@ function createCatalog(book){
   let price = document.createElement('h3');
   price.innerHTML = `$ ${book.price}`;
   price.classList.add("price");
+  let btnLearn = document.createElement('button');
+  btnLearn.innerHTML = "Learn more";
+  btnLearn.classList.add("btn-learn");
   bookCard.insertAdjacentHTML('beforeend', `<img>${book.imageLink}</img>`);
   bookCard.append(cardHeading);
   bookCard.insertAdjacentHTML('beforeend', `<p>${book.author}</p>`);
   bookCard.append(price);
   bookCard.append(btnBuy);
-  console.log(bookCard);
+  bookCard.append(btnLearn);
   return bookCard;
 }
 
@@ -163,6 +164,8 @@ books.forEach(book=>{
   let card = createCatalog(book);
   mainGrid.append(card);
 });
+
+
 
 
 </script>
