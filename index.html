@@ -12,15 +12,16 @@
 </body>
 
 <script>
+
+let fragment = document.createDocumentFragment();
+
 let logo = document.createElement('header');
 logo.classList.add("logo");
-document.body.append(logo);
 logo.innerHTML = '<img src="images/logo.png" alt="logo" ></ing'
-document.body.append(logo);
+fragment.appendChild(logo);
 
 let wrapper = document.createElement('div');
 wrapper.classList.add("wrapper");
-document.body.append(wrapper);
 
 let back = document.createElement('div');
 back.innerHTML = '<img src="images/bg.jpg" alt="books" ></img>';
@@ -30,7 +31,6 @@ let text = document.createElement('div');
 text.innerHTML = '<h1>WELCOME <br> to  Book Shop</h1>';
 text.classList.add("welcome-text");
 back.append(text);
-
 
 wrapper.append(back);
 
@@ -158,6 +158,8 @@ books.forEach(book=>{
   mainGrid.append(card);
 });
 
+fragment.appendChild(wrapper);
+document.body.appendChild(fragment);
 
 
 
