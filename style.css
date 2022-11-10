@@ -112,7 +112,11 @@ left: 240px
 .descriptionBlock{
   visibility: hidden;
   position:absolute;
-  height: 0px;
+
+  }
+  .descriptionBlock::after{
+    visibility: hidden;
+  position:absolute;
   }
   .description{
     border: 1px solid #FFE787;

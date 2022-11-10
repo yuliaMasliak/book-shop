@@ -157,7 +157,6 @@ descriptionBlock.classList.add("descriptionBlock");
 books.forEach(book=>{
   let card = createCatalog(book);
   mainGrid.append(card);
-  arr.push(card);
 });
 
 
@@ -175,7 +174,7 @@ let closest = y.closest('div');
 console.log(closest);
 y.addEventListener("click", showDescription);
  function showDescription(event){
-  closest.classList.add("descriptionBlock-show");}
-  console.log(closest);
+  closest.classList.toggle("descriptionBlock-show");}
   }
+
 
