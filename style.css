@@ -5,6 +5,19 @@
 body{
     background-color: #242121;
 }
+.header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  max-width: 1160px;
+}
+.cart {
+  text-align: right;
+  padding-right: 15px;
+}
+.cart img{
+  width: 80px;
+}
 .wrapper{
     margin: 0px auto;
     margin-top: 10px;
@@ -20,10 +33,6 @@ body{
 }
 .wrapper h1{
   font-size: 56px;
-}
-.logo{
-    max-width: 1240px;
-    margin: 0px auto;
 }
 .logo img{
     width: 270px;

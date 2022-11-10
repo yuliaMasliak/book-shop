@@ -1,9 +1,20 @@
 let fragment = document.createDocumentFragment();
 
-let logo = document.createElement('header');
+let header = document.createElement('header');
+header.classList.add("header");
+
+let logo = document.createElement('div');
 logo.classList.add("logo");
 logo.innerHTML = '<img src="images/logo.png" alt="logo" ></ing'
-fragment.appendChild(logo);
+
+let cart = document.createElement('div');
+cart.classList.add("cart");
+cart.innerHTML = '<img src="images/cart.png" alt="cart" ></ing'
+
+header.append(logo);
+header.append(cart);
+
+fragment.appendChild(header);
 
 let wrapper = document.createElement('div');
 wrapper.classList.add("wrapper");
