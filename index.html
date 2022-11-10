@@ -56,6 +56,9 @@ mainGrid.classList.add("main-grid");
 main.append(mainGrid);
 wrapper.append(main);
 
+fragment.appendChild(wrapper);
+document.body.appendChild(fragment);
+
 let books = [{
   "author": "Douglas Crockford",
   "imageLink": '<img src="images/book1.png" alt="book"></img>',
@@ -158,10 +161,14 @@ books.forEach(book=>{
   mainGrid.append(card);
 });
 
-fragment.appendChild(wrapper);
-document.body.appendChild(fragment);
 
-
+let buyAction = document.querySelectorAll(".btn-buy");
+console.log(buyAction)
+for(let x of buyAction){
+x.addEventListener("click", addToCart);
+function addToCart(event){
+  alert("Book is added to your cart")
+}}
 
 </script>
 </html>
