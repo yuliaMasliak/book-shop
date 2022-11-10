@@ -68,13 +68,13 @@ body{
     text-align: center;
     position: relative;
     padding-bottom: 15px;
-    margin-bottom: 140px;
+    margin-bottom: 160px;
 }
 .bookCard img:hover{
     transform: scale(1.3);
 }
 .bookCard img:hover{
-    transform: scale(1.8);
+    transform: scale(1.6);
     transition-timing-function: ease-in-out;
     transition-duration: 0.3s;
 }
@@ -86,6 +86,7 @@ body{
   font-size: 26px;
   max-width: 300px;
   text-align: center;
+  min-height: 130px;
 }
 .card-heading p{
     margin: 0px auto;
@@ -108,29 +109,59 @@ position: absolute;
 bottom: -50px;
 left: 240px
 }
+.descriptionBlock{
+  visibility: hidden;
+  position:absolute;
+  height: 0px;
+  }
+  .description{
+    border: 1px solid #FFE787;
+    border-radius: 8px;
+    max-width: 220px;
+    font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  padding: 20px;
+  background-color: #ffe787d2;
+  color:#242121;
+  text-align: justify;
+  z-index: 1;
+  position: relative;
+  top: -150px;
+  left: 290px;
+  margin-bottom: 50px;
+  height: 150px;
+  overflow: auto;
+    }
+  .descriptionBlock-show {
+    visibility: visible;
+    z-index: 1;
+  }
 .btn-buy{
+  visibility: visible;
   height: 40px;
   width: 130px;
   border-radius: 7px;
-  background-color: #FFE787;
+  background-color:  #242121;
   border: 1px solid #FFE787;
-  color: #242121;
+  color: #FFE787;
 position: absolute;
-bottom: -70px;
-left: 140px;
+bottom: 0px;
+left: 120px;
+top: 80px;
 font-family: 'Quicksand', sans-serif;
 font-weight: 500;
 font-size: 16px;
-margin-top: 15px;
 }
 
 .btn-buy:hover{
-background-color:  #242121;
+background-color:  #FFE787;
   border: 1px solid #FFE787;
-  color:  #FFE787;
+  color:  #242121;
   cursor: pointer
 }
 .btn-learn{
+  visibility: visible;
     height: 40px;
     width: 130px;
     border-radius: 7px;
@@ -138,12 +169,12 @@ background-color:  #242121;
     border: 1px solid #FFE787;
     color: #FFE787;
   position: absolute;
-  bottom: -70px;
-  left: 300px;
+  bottom: 0px;
+  top: 80px;
+  left: 270px;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   font-size: 16px;
-  margin-top: 15px;
   }
 
   .btn-learn:hover{
@@ -152,3 +183,4 @@ background-color:  #242121;
     color: #242121;
     cursor: pointer
   }
+
