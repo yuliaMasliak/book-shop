@@ -7,8 +7,9 @@ body{
 }
 .header{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto;
+  margin-top: 50px;
   max-width: 1160px;
 }
 .cart {
@@ -20,7 +21,6 @@ body{
 }
 .wrapper{
     margin: 0px auto;
-    margin-top: 10px;
     margin-bottom: 70px;
     max-width: 1160px;
     background-color: #312d2d;
@@ -195,5 +195,15 @@ background-color:  #FFE787;
     border: 1px solid #FFE787;
     color: #242121;
     cursor: pointer
+  }
+  .cartcount{
+    color: red;
+    font-family: 'Quicksand', sans-serif;
+font-weight: 500;
+font-size: 26px;
+display: flex;
+position: relative;
+left: 700px;
+top: -55px
   }
 

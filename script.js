@@ -11,8 +11,13 @@ let cart = document.createElement('div');
 cart.classList.add("cart");
 cart.innerHTML = '<img src="images/cart.png" alt="cart" ></ing'
 
+let cartcount = document.createElement('div');
+cartcount.classList.add("cartcount");
+
 header.append(logo);
+header.append(cartcount);
 header.append(cart);
+
 
 fragment.appendChild(header);
 
@@ -157,10 +162,8 @@ descriptionBlock.classList.add("descriptionBlock");
   descriptionBlock.append(description)
   descriptionBlock.append(btnBuy);
   descriptionBlock.append(btnLearn);
-
   bookCard.append(descriptionBlock);
-  // bookCard.append(btnBuy);
-  // bookCard.append(btnLearn);
+
   return bookCard;
 }
 
@@ -173,10 +176,12 @@ books.forEach(book=>{
 
 let buyAction = document.querySelectorAll(".btn-buy");
 
+let count = 1;
 for(let x of buyAction){
 x.addEventListener("click", addToCart);
 function addToCart(event){
-  alert("Book is added to your cart")
+  cartcount.innerHTML = `<h2>${count}</h2>`;
+  ++ count;
 }}
 
 let learnAction = document.querySelectorAll(".btn-learn");
