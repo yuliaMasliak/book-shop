@@ -194,29 +194,30 @@ function addToCart(event){
 let learnAction = document.querySelectorAll(".btn-learn");
 for(let y of learnAction){
 let closest = y.closest('div');
-console.log(closest);
+
 y.addEventListener("click", showDescription);
  function showDescription(event){
   closest.classList.toggle("descriptionBlock-show");}
   }
 
 let imgeToDrag = document.querySelectorAll(".book-image");
+console.log(imgeToDrag)
 
 for(let el of imgeToDrag){
 
         let move = false;
         let offsetX, offsetY;
 
-        el.addEventListener("mousedown", function (e) {
+        el.addEventListener("mousedown", function (event) {
             move = true;
-            offsetX = e.offsetX;
-            offsetY = e.offsetY;
+            offsetX = el.offsetX;
+            offsetY = el.offsetY;
         });
 
-        document.addEventListener("mousemove", function (e) {
+        document.addEventListener("mousemove", function (event) {
             if (move) {
-                el.style.top = e.clientY - offsetY + "px";
-                el.style.left = e.clientX - offsetX + "px";
+                el.style.top = el.clientY - offsetY + "px";
+                el.style.left = el.clientX - offsetX + "px";
             }
         });
 
