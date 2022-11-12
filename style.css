@@ -94,7 +94,9 @@ body{
     transition-timing-function: ease-in-out;
     transition-duration: 0.3s;
 }
-
+.book-image{
+  cursor: move;
+}
 .card-heading{
     margin: 0px auto;
   font-family: 'Quicksand', sans-serif;

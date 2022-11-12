@@ -159,9 +159,13 @@ descriptionBlock.classList.add("descriptionBlock");
   btnLearn.classList.add("btn-learn");
 
   let bookImage = document.createElement('div');
-  bookImage.innerHTML = `<img class="book-image" src=${book.imageLink}></img>`;
-  bookImage.classList.add("book-image-div");
+  bookImage.innerHTML = `<img src=${book.imageLink}></img>`;
+  bookImage.classList.add("book-image");
+  bookImage.setAttribute("draggable", "true");
+  bookImage.setAttribute("ondragstart", "drag(event)");
 
+  cart.setAttribute("ondrop", "drop(event)");
+  cart.setAttribute("ondragover", "allowDrop(event)");
 
   bookCard.append(bookImage);
   bookCard.append(cardHeading);
@@ -205,28 +209,19 @@ console.log(imgeToDrag)
 
 for(let el of imgeToDrag){
 
-        let move = false;
-        let offsetX, offsetY;
+function allowDrop(ev) {
+  ev.preventDefault();
+}
 
-        el.addEventListener("mousedown", function (event) {
-            move = true;
-            offsetX = el.offsetX;
-            offsetY = el.offsetY;
-        });
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
 
-        document.addEventListener("mousemove", function (event) {
-            if (move) {
-                el.style.top = el.clientY - offsetY + "px";
-                el.style.left = el.clientX - offsetX + "px";
-            }
-        });
-
-        el.addEventListener("mouseup", countRise)
-        function countRise (event){
-            move = false;
-            cartcount.innerHTML = `<h2>${count}</h2>`;
-            ++ count;
-        };
-      }
-
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  cartcount.innerHTML = `<h2>${count}</h2>`;
+   ++ count;
+}
+}
 
