@@ -40,11 +40,13 @@ grid.classList.add("grid");
 let gridCol = document.createElement('div');
 let gridCol1 = document.createElement('div');
 let gridCol2 = document.createElement('div');
+let gridCol3 = document.createElement('div');
 
 
 grid.append(gridCol);
 grid.append(cart);
 grid.append(gridCol2);
+grid.append(gridCol3);
 cart.append(cartcount);
 
 wrapper.append(grid);
@@ -184,6 +186,10 @@ books.forEach(book=>{
   mainGrid.append(card);
 });
 
+let confirmBtn = document.createElement('button');
+confirmBtn.classList.add("confirm-btn");
+confirmBtn.innerHTML = "Make an Order"
+grid.append(confirmBtn);
 
 let buyAction = document.querySelectorAll(".btn-buy");
 
@@ -222,6 +228,11 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
   cartcount.innerHTML = `<h2>${count}</h2>`;
    ++ count;
-}
-}
+  confirmBtn.classList.add("confirm-btn-show");
+  }
+  }
+
+
+
+
 
