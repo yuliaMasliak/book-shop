@@ -3,6 +3,9 @@ let fragment = document.createDocumentFragment();
 let header = document.createElement('header');
 header.classList.add("header");
 
+let headerDiv = document.createElement('div');
+headerDiv.classList.add("header-div");
+
 let logo = document.createElement('div');
 logo.classList.add("logo");
 logo.innerHTML = '<img src="images/logo.png" alt="logo" ></ing'
@@ -16,11 +19,13 @@ cart.setAttribute("ondragover", "allowDrop(event)");
 let cartcount = document.createElement('div');
 cartcount.classList.add("cartcount");
 
-header.append(logo);
-header.append(cartcount);
+
+headerDiv.append(logo);
+headerDiv.append(cartcount);
+headerDiv.append(cart);
+header.append(headerDiv);
 
 fragment.appendChild(header);
-
 let wrapper = document.createElement('div');
 wrapper.classList.add("wrapper");
 
@@ -35,23 +40,10 @@ back.append(text);
 
 wrapper.append(back);
 
-let grid = document.createElement('div');
-grid.classList.add("grid");
-let gridCol = document.createElement('div');
-let gridCol1 = document.createElement('div');
-let gridCol2 = document.createElement('div');
-let gridCol3 = document.createElement('div');
 
 
-grid.append(gridCol);
-grid.append(cart);
-grid.append(gridCol2);
-grid.append(gridCol3);
+
 cart.append(cartcount);
-
-wrapper.append(grid);
-
-gridCol1.innerHTML = '';
 
 let main = document.createElement('main');
 document.body.append(main);
@@ -186,11 +178,12 @@ books.forEach(book=>{
   mainGrid.append(card);
 });
 
+
 let confirmBtn = document.createElement('button');
 confirmBtn.classList.add("confirm-btn");
 confirmBtn.innerHTML = "Make an Order";
 
-grid.append(confirmBtn);
+cart.append(confirmBtn);
 
 
 let buyAction = document.querySelectorAll(".btn-buy");
@@ -202,6 +195,7 @@ function addToCart(event){
   cartcount.innerHTML = `<h2>${count}</h2>`;
   ++ count;
   confirmBtn.classList.add("confirm-btn-show");
+  x.innerHTML = "In Cart";
 }}
 
 let learnAction = document.querySelectorAll(".btn-learn");

@@ -6,32 +6,47 @@ body{
     background-color: #0a0a23;
 }
 .header{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 auto;
-  margin-top: 20px;
+  height: 120px;
+  background-color: #1b1b32;
+  margin: 0px auto;
+  min-width: 1600px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.header-div{
+  display: flex;
+  justify-content: space-between;
   max-width: 1160px;
+  margin: 0px auto;
 }
 .cart {
-  text-align: center;
-  margin: 0 auto;
+  text-align: right;
+top: 30px;
+position: relative;
   max-height: 100px;
-  margin-top: 15px;;
+
+
 }
 .cart img{
   width: 80px;
 }
 .wrapper{
     margin: 0px auto;
+    margin-top: 90px;
     margin-bottom: 70px;
     max-width: 1160px;
     background-color: #1b1b32;
     color: white;
     border-radius: 8px;
 }
+.back {
+  max-height: 300px;
+}
 .back img{
     max-width: 1160px;
-    border-radius: 8px;
+
 }
 .wrapper h1{
   font-size: 56px;
@@ -39,21 +54,10 @@ body{
 .logo img{
     width: 270px;
 }
-.grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    min-height: 180px;
-    border-radius: 9px;
-    align-items: center;
-    font-family: 'Quicksand', sans-serif;
-    text-align: center;
-    font-size: 24px;
-}
-.back{
-    max-height: 550px;
-}
+
 .welcome-text{
-    max-width: 677px;
+    max-width: 477px;
+    max-height: 180px;
     font-family: 'Quicksand', sans-serif;
     font-weight:  500px;
     font-size: 46px;
@@ -61,14 +65,14 @@ body{
     padding: 10px;
     position: relative;
     margin: 0px auto;
-    top: -380px;
+    top: -240px;
     backdrop-filter: blur(10px);
-    border-radius: 50%;
+    border-radius: 10px;
 }
 
 .main-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 0px auto;
     max-width: 1160px;
 }
@@ -84,6 +88,7 @@ body{
 }
 .bookCard img{
   width: 180px;
+  max-height: 230px;
   margin-top: 15px;
   margin-bottom: 25px;
 }
@@ -97,21 +102,22 @@ body{
 }
 .book-image{
   cursor: move;
+
 }
 .card-heading{
     margin: 0px auto;
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
-  font-size: 26px;
+  font-size: 20px;
   max-width: 300px;
   text-align: center;
-  min-height: 130px;
+  min-height: 110px;
 }
 .card-heading p{
     margin: 0px auto;
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   max-width: 300px;
   text-align: center;
   margin-top: 10px;
@@ -124,9 +130,7 @@ font-family: 'Quicksand', sans-serif;
 font-weight: 500;
 font-size: 32px;
 color:#faf1ce;
-position: absolute;
-bottom: -50px;
-left: 240px
+margin: 0 auto;
 }
 .descriptionBlock{
   visibility: hidden;
@@ -150,8 +154,8 @@ left: 240px
   text-align: justify;
   z-index: 1;
   position: relative;
-  top: -150px;
-  left: 290px;
+  top: -170px;
+  left: 170px;
   margin-bottom: 50px;
   height: 150px;
   overflow-y: scroll;
@@ -169,6 +173,12 @@ left: 240px
     visibility: visible;
     z-index: 1;
   }
+  .confirm-btn:hover{
+    background-color:  #FFE787;
+      border: 1px solid #FFE787;
+      color:  #0a0a23;
+      cursor: pointer
+    }
   .confirm-btn{
     visibility: hidden;
   }
@@ -176,7 +186,7 @@ left: 240px
     visibility: visible;
     cursor: pointer;
     margin: 0 auto;
-margin-top: 10px;
+margin-top: 50px;
   height: 40px;
   width: 130px;
   border-radius: 7px;
@@ -191,15 +201,16 @@ font-size: 16px;
 .btn-buy{
   visibility: visible;
   height: 40px;
-  width: 130px;
-  border-radius: 7px;
+  width: 100px;
+  border-radius: 8px;
   background-color:  #0a0a23;
-  border: 1px solid #FFE787;
+  border: 0.1px solid #FFE787;
   color: #FFE787;
+  margin: 0 auto;
 position: absolute;
 bottom: 0px;
-left: 120px;
-top: 80px;
+left: 10px;
+top: 50px;
 font-family: 'Quicksand', sans-serif;
 font-weight: 500;
 font-size: 16px;
@@ -214,15 +225,15 @@ background-color:  #FFE787;
 .btn-learn{
   visibility: visible;
     height: 40px;
-    width: 130px;
+    width: 100px;
     border-radius: 7px;
     background-color: #0a0a23;
     border: 1px solid #FFE787;
     color: #FFE787;
   position: absolute;
   bottom: 0px;
-  top: 80px;
-  left: 270px;
+  top: 50px;
+  left: 125px;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -239,10 +250,9 @@ background-color:  #FFE787;
     font-family: 'Quicksand', sans-serif;
 font-weight: 500;
 font-size: 26px;
-display: flex;
-position: relative;
-text-align: center;
-margin: 0px auto;
-top: -140px;
-left: 15px;
+text-align: right;
+  margin: 0 auto;
+  max-height: 100px;
+  margin-top: -140px;
+  padding-right: 40px;
   }
