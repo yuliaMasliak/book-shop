@@ -181,7 +181,7 @@ books.forEach(book=>{
 
 let confirmBtn = document.createElement('button');
 confirmBtn.classList.add("confirm-btn");
-confirmBtn.innerHTML = "Make an Order";
+confirmBtn.innerHTML = "Go to Cart";
 
 cart.append(confirmBtn);
 
