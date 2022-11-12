@@ -188,8 +188,10 @@ books.forEach(book=>{
 
 let confirmBtn = document.createElement('button');
 confirmBtn.classList.add("confirm-btn");
-confirmBtn.innerHTML = "Make an Order"
+confirmBtn.innerHTML = "Make an Order";
+
 grid.append(confirmBtn);
+
 
 let buyAction = document.querySelectorAll(".btn-buy");
 
@@ -199,6 +201,7 @@ x.addEventListener("click", addToCart);
 function addToCart(event){
   cartcount.innerHTML = `<h2>${count}</h2>`;
   ++ count;
+  confirmBtn.classList.add("confirm-btn-show");
 }}
 
 let learnAction = document.querySelectorAll(".btn-learn");
@@ -231,7 +234,9 @@ function drop(ev) {
   confirmBtn.classList.add("confirm-btn-show");
   }
   }
-
+  document.querySelector(".confirm-btn").onclick = function () {
+    location.href = "delivery/index.html";
+};
 
 
 
