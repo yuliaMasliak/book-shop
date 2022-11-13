@@ -134,9 +134,21 @@ function createCatalog(book){
   let btnBuy = document.createElement('button');
   btnBuy.innerHTML = "Add To Cart";
   btnBuy.classList.add("btn-buy");
+
+  let bookCardHead = document.createElement('div');
+  bookCardHead.classList.add("book-card-head");
+
   let cardHeading = document.createElement('h2');
-  cardHeading.innerHTML = `${book.title} <p>${book.author}</p>`;
   cardHeading.classList.add("card-heading");
+  cardHeading.innerHTML = `${book.title}`;
+
+  let cardAuthor = document.createElement('p');
+  cardAuthor.classList.add("book-author")
+  cardAuthor.innerHTML = `${book.author}`;
+
+  bookCardHead.append(cardHeading);
+  bookCardHead.append(cardAuthor);
+
   let price = document.createElement('h3');
   price.innerHTML = `$ ${book.price}`;
   price.classList.add("price");
@@ -162,12 +174,12 @@ descriptionBlock.classList.add("descriptionBlock");
   cart.setAttribute("ondragover", "allowDrop(event)");
 
   bookCard.append(bookImage);
-  bookCard.append(cardHeading);
+  bookCard.append(bookCardHead);
   bookCard.append(price);
   descriptionBlock.append(description)
   descriptionBlock.append(btnBuy);
   descriptionBlock.append(btnLearn);
-  bookCard.append(descriptionBlock);
+  bookCardHead.append(descriptionBlock);
 
   return bookCard;
 }
@@ -179,11 +191,27 @@ books.forEach(book=>{
 });
 
 
-let confirmBtn = document.createElement('button');
-confirmBtn.classList.add("confirm-btn");
-confirmBtn.innerHTML = "Go to Cart";
+let cartContent = document.createElement('div');
+cartContent.classList.add("cart-content");
 
-cart.append(confirmBtn);
+header.append(cartContent);
+
+function createCartContent(book){
+  let bookAdded = document.createElement('div');
+  bookAdded.classList.add("book-added");
+   let cartBookHeading = document.createElement('h2');
+   cartBookHeading.innerHTML = `${book.title} <p>${book.author}</p>`;
+   cartBookHeading.classList.add("card-heading");
+  let price = document.createElement('h3');
+  price.innerHTML = `$ ${book.price}`;
+  price.classList.add("price");
+
+  bookAdded.append(cartBookHeading);
+  bookAdded.append(price);
+
+  return bookAdded;
+}
+
 
 
 let buyAction = document.querySelectorAll(".btn-buy");
@@ -194,24 +222,24 @@ x.addEventListener("click", addToCart);
 function addToCart(event){
   cartcount.innerHTML = `<h2>${count}</h2>`;
   ++ count;
-  confirmBtn.classList.add("confirm-btn-show");
+  cartContent.classList.add("cart-content-show");
   x.innerHTML = "In Cart";
-}}
+  cartContent.innerHTML = x.closest(".book-card-head").innerHTML;
+
+  }}
+
 
 let learnAction = document.querySelectorAll(".btn-learn");
 for(let y of learnAction){
 let closest = y.closest('div');
-
 y.addEventListener("click", showDescription);
  function showDescription(event){
   closest.classList.toggle("descriptionBlock-show");}
   }
 
 let imgeToDrag = document.querySelectorAll(".book-image");
-console.log(imgeToDrag)
 
 for(let el of imgeToDrag){
-
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -225,12 +253,19 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
   cartcount.innerHTML = `<h2>${count}</h2>`;
    ++ count;
-  confirmBtn.classList.add("confirm-btn-show");
+   cartContent.classList.add("cart-content-show");
   }
   }
-  document.querySelector(".confirm-btn").onclick = function () {
-    location.href = "delivery/index.html";
-};
+
+
+
+
+
+
+
+  // document.querySelector(".confirm-btn").onclick = function () {
+  //   location.href = "delivery/index.html";
+  // };
 
 
 

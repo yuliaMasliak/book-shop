@@ -52,6 +52,7 @@ position: relative;
   font-size: 56px;
 }
 .logo img{
+  margin-top: 15px;
     width: 270px;
 }
 
@@ -84,7 +85,7 @@ position: relative;
     text-align: center;
     position: relative;
     padding-bottom: 15px;
-    margin-bottom: 160px;
+    margin-bottom: 100px;
 }
 .bookCard img{
   width: 180px;
@@ -111,17 +112,17 @@ position: relative;
   font-size: 20px;
   max-width: 300px;
   text-align: center;
-  min-height: 110px;
+  min-height: 80px;
 }
-.card-heading p{
+.book-author{
     margin: 0px auto;
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
   font-size: 16px;
   max-width: 300px;
   text-align: center;
-  margin-top: 10px;
   margin-bottom: 20px;
+  min-height: 40px;
 }
 
 
@@ -173,26 +174,20 @@ margin: 0 auto;
     visibility: visible;
     z-index: 1;
   }
-  .confirm-btn:hover{
-    background-color:  #FFE787;
-      border: 1px solid #FFE787;
-      color:  #0a0a23;
-      cursor: pointer
-    }
-  .confirm-btn{
+
+  .cart-content{
     visibility: hidden;
   }
-  .confirm-btn-show{
+  .cart-content-show{
     visibility: visible;
-    cursor: pointer;
-    margin: 0 auto;
-margin-top: 50px;
-  height: 40px;
-  width: 130px;
+    float:right;
+    margin-right: 50px;
+  margin-top: 50px;
+  height: 140px;
+  width: 430px;
   border-radius: 7px;
-  background-color:  #0a0a23;
-  border: 1px solid #FFE787;
-  color: #FFE787;
+  background-color:aliceblue;
+  color: #0a0a23;
 font-family: 'Quicksand', sans-serif;
 font-weight: 500;
 font-size: 16px;
