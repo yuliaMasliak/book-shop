@@ -196,14 +196,15 @@ margin: 0 auto;
     float:right;
     margin-right: 50px;
   margin-top: 50px;
-  height: 140px;
+  /* height: 140px; */
   width: 430px;
   border-radius: 7px;
   background-color:aliceblue;
   color: #0a0a23;
 font-family: 'Quicksand', sans-serif;
-font-weight: 500;
-font-size: 16px;
+font-weight: 300;
+font-size: 14px;
+padding: 10px;
 
   }
 .btn-buy{
@@ -264,3 +265,9 @@ text-align: right;
   margin-top: -140px;
   padding-right: 40px;
   }
+.cart-price{
+  color: #0a0a23;
+}
+.cart-book-image img{
+  width:  60px;
+}

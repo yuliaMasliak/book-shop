@@ -40,9 +40,6 @@ back.append(text);
 
 wrapper.append(back);
 
-
-
-
 cart.append(cartcount);
 
 let main = document.createElement('main');
@@ -126,16 +123,14 @@ let books = [{
     "description": "Secrets of the Javascript Ninja takes you on a journey towards mastering modern JavaScript development in three phases: design, construction, and maintenance. Written for JavaScript developers with intermediate-level skills, this book will give you the knowledge you need to create a cross-browser JavaScript library from the ground up."
   }
 ]
- let arr=[];
+
 
 function createCatalog(book){
   let bookCard = document.createElement('div');
   bookCard.classList.add("bookCard");
-  let btnBuy = document.createElement('button');
-  btnBuy.innerHTML = "Add To Cart";
-  btnBuy.classList.add("btn-buy");
+  bookCard.setAttribute('data-bookcard', `${book.author}`)
 
-  let bookCardHead = document.createElement('div');
+   let bookCardHead = document.createElement('div');
   bookCardHead.classList.add("book-card-head");
 
   let cardHeading = document.createElement('h2');
@@ -153,8 +148,8 @@ function createCatalog(book){
   price.innerHTML = `$ ${book.price}`;
   price.classList.add("price");
 
-let descriptionBlock = document.createElement('div');
-descriptionBlock.classList.add("descriptionBlock");
+  let descriptionBlock = document.createElement('div');
+  descriptionBlock.classList.add("descriptionBlock");
 
   let description = document.createElement('p');
   description.innerHTML = `${book.description}`;
@@ -165,6 +160,18 @@ descriptionBlock.classList.add("descriptionBlock");
   cross.classList.add("cross");
   descriptionBlock.prepend(cross);
 
+  let btnBuy = document.createElement('button');
+  btnBuy.innerHTML = "Add To Cart";
+  btnBuy.classList.add("btn-buy");
+  btnBuy.setAttribute('data-btn', `${book.author}`)
+  btnBuy.addEventListener("click", match);
+  function match(event){
+    if(btnBuy.dataset.btn == bookCard.dataset.bookcard){
+      let cartCard = createCartContent(book);
+      cartContent.append(cartCard);
+    }
+  }
+
   let btnLearn = document.createElement('button');
   btnLearn.innerHTML = "Learn more";
   btnLearn.classList.add("btn-learn");
@@ -172,11 +179,34 @@ descriptionBlock.classList.add("descriptionBlock");
   let bookImage = document.createElement('div');
   bookImage.innerHTML = `<img src=${book.imageLink}></img>`;
   bookImage.classList.add("book-image");
+  bookImage.setAttribute('data-image', `${book.author}`)
   bookImage.setAttribute("draggable", "true");
   bookImage.setAttribute("ondragstart", "drag(event)");
+  bookImage.addEventListener("click", allowDrop)
+  function  allowDrop(event){
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    cartcount.innerHTML = `<h2>${count}</h2>`;
+     ++ count;
+     cartContent.classList.add("cart-content-show");
+
+        let cartCard = createCartContent(book);
+        cartContent.append(cartCard);
+      }
+
+
 
   cart.setAttribute("ondrop", "drop(event)");
   cart.setAttribute("ondragover", "allowDrop(event)");
+  // cart.setAttribute("ondragover", "match(event)");
 
   bookCard.append(bookImage);
   bookCard.append(bookCardHead);
@@ -193,6 +223,7 @@ descriptionBlock.classList.add("descriptionBlock");
 books.forEach(book=>{
   let card = createCatalog(book);
   mainGrid.append(card);
+  console.log(card);
 });
 
 
@@ -201,17 +232,20 @@ cartContent.classList.add("cart-content");
 
 header.append(cartContent);
 
-
 function createCartContent(book){
   let bookAdded = document.createElement('div');
   bookAdded.classList.add("book-added");
-   let cartBookHeading = document.createElement('h2');
+  let cartBookImage = document.createElement('div');
+  cartBookImage.innerHTML = `<img src=${book.imageLink}></img>`;
+  cartBookImage.classList.add("cart-book-image");
+   let cartBookHeading = document.createElement('span');
    cartBookHeading.innerHTML = `${book.title} <p>${book.author}</p>`;
-   cartBookHeading.classList.add("card-heading");
+   cartBookHeading.classList.add("cart-card-heading");
   let price = document.createElement('h3');
   price.innerHTML = `$ ${book.price}`;
-  price.classList.add("price");
+  price.classList.add("cart-price");
 
+  bookAdded.append(cartBookImage);
   bookAdded.append(cartBookHeading);
   bookAdded.append(price);
 
@@ -228,11 +262,10 @@ function addToCart(event){
   x.innerHTML = "In Cart";
   cartcount.innerHTML = `<h2>${count}</h2>`;
   ++ count;
-
   cartContent.classList.add("cart-content-show");
-     cartContent.innerHTML = x.parentElement.className("book-card-head").innerHTML;
   }
   }
+
 
   let crosses = document.querySelectorAll(".cross");
   for(let cross of crosses){
@@ -269,6 +302,7 @@ function drop(ev) {
   cartcount.innerHTML = `<h2>${count}</h2>`;
    ++ count;
    cartContent.classList.add("cart-content-show");
+   match();
   }
   }
 
