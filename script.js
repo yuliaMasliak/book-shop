@@ -160,6 +160,11 @@ descriptionBlock.classList.add("descriptionBlock");
   description.innerHTML = `${book.description}`;
   description.classList.add("description");
 
+  let cross = document.createElement('button');
+  cross.innerHTML = `X`;
+  cross.classList.add("cross");
+  descriptionBlock.prepend(cross);
+
   let btnLearn = document.createElement('button');
   btnLearn.innerHTML = "Learn more";
   btnLearn.classList.add("btn-learn");
@@ -196,6 +201,7 @@ cartContent.classList.add("cart-content");
 
 header.append(cartContent);
 
+
 function createCartContent(book){
   let bookAdded = document.createElement('div');
   bookAdded.classList.add("book-added");
@@ -213,21 +219,30 @@ function createCartContent(book){
 }
 
 
-
 let buyAction = document.querySelectorAll(".btn-buy");
 
 let count = 1;
 for(let x of buyAction){
 x.addEventListener("click", addToCart);
 function addToCart(event){
+  x.innerHTML = "In Cart";
   cartcount.innerHTML = `<h2>${count}</h2>`;
   ++ count;
+
   cartContent.classList.add("cart-content-show");
-  x.innerHTML = "In Cart";
-  cartContent.innerHTML = x.closest(".book-card-head").innerHTML;
+     cartContent.innerHTML = x.parentElement.className("book-card-head").innerHTML;
+  }
+  }
 
-  }}
-
+  let crosses = document.querySelectorAll(".cross");
+  for(let cross of crosses){
+    let closest = cross.closest('div');
+    cross.addEventListener("click", close);
+    function close(event){
+      closest.classList.add("descriptionBlock");
+      closest.classList.remove("descriptionBlock-show")
+    }
+  }
 
 let learnAction = document.querySelectorAll(".btn-learn");
 for(let y of learnAction){
