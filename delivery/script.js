@@ -102,27 +102,27 @@ inputSurname.oninput = function() {
 
   let resultDate = document.querySelector("#result-date")
   inputDate.oninput = function() {
-    resultDate.innerHTML = inputDate.value;
+    resultDate.innerHTML = `Delivery date: ${inputDate.value}`;
     };
 
     let resultStreet = document.querySelector("#result-street")
     inputStreet.oninput = function() {
-      resultStreet.innerHTML = inputStreet.value;
+      resultStreet.innerHTML = `Street: ${inputStreet.value}`;
       };
       let resultHouse = document.querySelector("#result-house")
       inputHouse.oninput = function() {
-        resultHouse.innerHTML = inputHouse.value;
+        resultHouse.innerHTML = `House: ${inputHouse.value}`;
         };
         let resultFlat = document.querySelector("#result-flat")
       inputFlat.oninput = function() {
-        resultFlat.innerHTML = inputFlat.value;
-        };
-  //   let inputSelect = document.getElementById("gift");
-  //  function selectedOptions(){
-  //   let resultSelect = document.querySelector("#result-selected")
-  //   inputSelect.oninput = function() {
-  //     resultSelect.innerHTML = inputSelect.value;
-  //   }};
+        resultFlat.innerHTML = `Flat number: ${inputFlat.value}`;       };
+
+
+  let resultDiv = document.querySelector(".hide-result");
+  let submitBtn = document.querySelector(".submit-btn");
+  let orderPage = document.querySelector(".order-show");
+  submitBtn.addEventListener("click", showResult)
   function showResult(event){
-    getElementById("result").classList.add("show-result");
+    resultDiv.setAttribute("style", "display: block!important");
+    orderPage.classList.add("order-hidden");
   }
