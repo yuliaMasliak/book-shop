@@ -238,12 +238,12 @@ function createCartContent(book){
   function removeBook(event){
     total = total - bookPrice;
     bookAdded.remove();
-    cartTotalPrice.innerHTML = 'Total price:' + total;
+    cartTotalPrice.innerHTML = 'Total price: $ ' + total;
     count--;
     cartcount.innerHTML = `<h2>${count}</h2>`;
 
   }
-  cartTotalPrice.innerHTML = 'Total price:' + total;
+  cartTotalPrice.innerHTML = 'Total price: $ ' + total;
 
   return bookAdded;
 }
