@@ -241,7 +241,7 @@ function createCartContent(book){
   price.classList.add("cart-price");
   let bookPrice = Number(book.price);
   total = total + bookPrice;
-  cartTotalPrice.innerHTML = 'Total price:' + total;
+
   let hr = document.createElement('hr');
   let removeBtn = document.createElement('button');
   removeBtn.classList.add('remove-btn');
@@ -252,6 +252,15 @@ function createCartContent(book){
   bookAdded.append(price);
   bookAdded.append(removeBtn);
   bookAdded.append(hr);
+
+  removeBtn.addEventListener("click", removeBook);
+  function removeBook(event){
+    total = total - bookPrice;
+    bookAdded.remove();
+    cartTotalPrice.innerHTML = 'Total price:' + total;
+    console.log(total)
+  }
+  cartTotalPrice.innerHTML = 'Total price:' + total;
 
   return bookAdded;
 }
