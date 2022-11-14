@@ -20,14 +20,14 @@ body{
   justify-content: space-between;
   max-width: 1160px;
   margin: 0px auto;
+  top: 60px;
 }
 .cart {
-  text-align: right;
 top: 30px;
+right: 40px;
 position: relative;
   max-height: 100px;
-
-
+  padding-right: 30px;
 }
 .cart img{
   width: 80px;
@@ -190,13 +190,12 @@ margin: 0 auto;
 }
   .cart-content{
     visibility: hidden;
-  }
+     }
   .cart-content-show{
     visibility: visible;
     float:right;
     margin-right: 50px;
   margin-top: 50px;
-  /* height: 140px; */
   width: 430px;
   border-radius: 7px;
   background-color:aliceblue;
@@ -205,8 +204,10 @@ font-family: 'Quicksand', sans-serif;
 font-weight: 300;
 font-size: 14px;
 padding: 10px;
-
+overflow: scroll;
+max-height: 500px;
   }
+
 .btn-buy{
   visibility: visible;
   height: 40px;
@@ -271,3 +272,46 @@ text-align: right;
 .cart-book-image img{
   width:  60px;
 }
+.confirm-btn{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 40px;
+    border-radius: 7px;
+    background-color: #FFE787;
+    border: 1px solid #0a0a23;
+    color: #0a0a23;
+   font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+.confirm-btn:hover{
+  cursor: pointer;
+   background-color:#0a0a23;
+    border: 1px solid #0a0a23;
+    color: #FFE787;
+   font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+.cart-total-price{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.remove-btn{
+ height: 30px;
+    border-radius: 7px;
+    background-color: #0a0a23;
+    border: 1px solid #FFE787;
+    color: #FFE787;
+   font-family: 'Quicksand', sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+}
+.remove-btn:hover{
+  cursor: pointer;
+  background-color:#FFE787;
+   border: 1px solid #0a0a23;
+   color: #0a0a23;
+ }

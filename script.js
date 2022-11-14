@@ -167,8 +167,9 @@ function createCatalog(book){
   btnBuy.addEventListener("click", match);
   function match(event){
     if(btnBuy.dataset.btn == bookCard.dataset.bookcard){
-      let cartCard = createCartContent(book);
-      cartContent.append(cartCard);
+       let cartCard = createCartContent(book);
+       cartContent.append(cartCard);
+
     }
   }
 
@@ -206,7 +207,6 @@ function createCatalog(book){
 
   cart.setAttribute("ondrop", "drop(event)");
   cart.setAttribute("ondragover", "allowDrop(event)");
-  // cart.setAttribute("ondragover", "match(event)");
 
   bookCard.append(bookImage);
   bookCard.append(bookCardHead);
@@ -226,12 +226,7 @@ books.forEach(book=>{
   console.log(card);
 });
 
-
-let cartContent = document.createElement('div');
-cartContent.classList.add("cart-content");
-
-header.append(cartContent);
-
+let total = 0;
 function createCartContent(book){
   let bookAdded = document.createElement('div');
   bookAdded.classList.add("book-added");
@@ -244,13 +239,43 @@ function createCartContent(book){
   let price = document.createElement('h3');
   price.innerHTML = `$ ${book.price}`;
   price.classList.add("cart-price");
+  let bookPrice = Number(book.price);
+  total = total + bookPrice;
+  cartTotalPrice.innerHTML = 'Total price:' + total;
+  let hr = document.createElement('hr');
+  let removeBtn = document.createElement('button');
+  removeBtn.classList.add('remove-btn');
+  removeBtn.innerHTML = 'Remove from cart';
 
   bookAdded.append(cartBookImage);
   bookAdded.append(cartBookHeading);
   bookAdded.append(price);
+  bookAdded.append(removeBtn);
+  bookAdded.append(hr);
 
   return bookAdded;
 }
+
+
+let cartContent = document.createElement('div');
+cartContent.classList.add("cart-content");
+
+let cartTotalPrice = document.createElement('div');
+  cartTotalPrice.classList.add("cart-total-price");
+
+  let confirmBtn = document.createElement('button');
+  confirmBtn.classList.add("confirm-btn");
+  confirmBtn.innerHTML = 'Confirm Order';
+  let hr = document.createElement('hr');
+  cartContent.insertAdjacentElement("beforeEnd", cartTotalPrice);
+  cartContent.insertAdjacentElement("beforeEnd", confirmBtn);
+  cartContent.insertAdjacentElement("beforeEnd", hr);
+
+
+header.append(cartContent);
+
+
+
 
 
 let buyAction = document.querySelectorAll(".btn-buy");
@@ -312,9 +337,9 @@ function drop(ev) {
 
 
 
-  // document.querySelector(".confirm-btn").onclick = function () {
-  //   location.href = "delivery/index.html";
-  // };
+  document.querySelector(".confirm-btn").onclick = function () {
+    location.href = "delivery/index.html";
+  };
 
 
 
