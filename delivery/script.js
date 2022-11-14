@@ -61,3 +61,31 @@ inputStreet.onfocus = function() {
     error3.innerHTML = "";
   }
 };
+
+let inputHouse = document.getElementById("house");
+inputHouse.onblur = function(){
+  if(inputHouse.value < 0){
+    inputHouse.classList.add("error");
+      error4.innerHTML = 'The field is invalid'
+  }
+}
+inputHouse.onfocus = function() {
+  if (this.classList.contains('error')) {
+     this.classList.remove('error');
+    error4.innerHTML = "";
+  }
+}
+
+let inputFlat = document.getElementById("flat");
+inputFlat.onblur = function(){
+  if(inputFlat.value < 0){
+    inputFlat.classList.add("error");
+      error5.innerHTML = 'The field is invalid'
+  }
+}
+inputFlat.onfocus = function() {
+  if (this.classList.contains('error')) {
+     this.classList.remove('error');
+    error5.innerHTML = "";
+  }
+}

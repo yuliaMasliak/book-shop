@@ -181,13 +181,13 @@ function createCatalog(book){
   bookImage.innerHTML = `<img src=${book.imageLink}></img>`;
   bookImage.classList.add("book-image");
   bookImage.setAttribute('data-image', `${book.author}`)
+  console.log(bookImage)
   bookImage.setAttribute("draggable", "true");
   bookImage.setAttribute("ondragstart", "drag(event)");
   bookImage.addEventListener("click", allowDrop);
   cart.setAttribute("ondrop", "drop(event)");
   cart.setAttribute("ondragover", "allowDrop(event)");
-
-   cart.setAttribute("ondrop", "drop(event)");
+  cart.setAttribute("ondrop", "drop(event)");
   cart.setAttribute("ondragover", "allowDrop(event)");
 
     bookCard.append(bookImage);
@@ -283,7 +283,6 @@ function addToCart(event){
   }
   cartcount.innerHTML = `<h2>${count}</h2>`;
   cartContent.classList.add("cart-content-show");
-
   }
   }
 
@@ -310,34 +309,33 @@ let imgeToDrag = document.querySelectorAll(".book-image");
 
 
 for(let el of imgeToDrag){
+  function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("text");
+    count++;
+    cartcount.innerHTML = `<h2>${count}</h2>`;
+     cartContent.classList.add("cart-content-show");
+
+   for(let i=0; i<books.length; i++){
+   if(el.dataset.image === books[i].author){
+         let bookToDragToCart = createCartContent(books[i]);
+         console.log(books[i]);
+         console.log(el);
+
+         cartContent.append(bookToDragToCart);
+    }}}
+
 
  function allowDrop(event) {
   event.preventDefault();
-}
+  }
 
 function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
+ }
+
 
 }
-
-function drop(event) {
-  event.preventDefault();
-  var data = event.dataTransfer.getData("text");
-  count++;
-  cartcount.innerHTML = `<h2>${count}</h2>`;
-   cartContent.classList.add("cart-content-show");
-
-    for(let x=0; x<books.length; x++){
-     if(el.dataset.image === books[x].author){
-
-      let bookToDragToCart =  createCartContent(books[x]);
-        cartContent.append(bookToDragToCart);
-   }
-
-}
-  }
-  }
-
 
   document.querySelector(".confirm-btn").onclick = function () {
     location.href = "delivery/index.html";
