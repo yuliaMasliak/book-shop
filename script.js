@@ -8,7 +8,7 @@ headerDiv.classList.add("header-div");
 
 let logo = document.createElement('div');
 logo.classList.add("logo");
-logo.innerHTML = '<img src="images/logo.png" alt="logo" ></ing'
+logo.innerHTML = '<a href="index.html"><img src="images/logo.png" alt="logo" ></img></a>'
 
 let cart = document.createElement('div');
 cart.classList.add("cart");
@@ -169,8 +169,8 @@ function createCatalog(book){
     if(btnBuy.dataset.btn == bookCard.dataset.bookcard){
        let cartCard = createCartContent(book);
        cartContent.append(cartCard);
-
     }
+
   }
 
   let btnLearn = document.createElement('button');
@@ -183,32 +183,14 @@ function createCatalog(book){
   bookImage.setAttribute('data-image', `${book.author}`)
   bookImage.setAttribute("draggable", "true");
   bookImage.setAttribute("ondragstart", "drag(event)");
-  bookImage.addEventListener("click", allowDrop)
-  function  allowDrop(event){
-    ev.preventDefault();
-  }
-
-  function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-  }
-
-  function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    cartcount.innerHTML = `<h2>${count}</h2>`;
-     ++ count;
-     cartContent.classList.add("cart-content-show");
-
-        let cartCard = createCartContent(book);
-        cartContent.append(cartCard);
-      }
-
-
-
+  bookImage.addEventListener("click", allowDrop);
   cart.setAttribute("ondrop", "drop(event)");
   cart.setAttribute("ondragover", "allowDrop(event)");
 
-  bookCard.append(bookImage);
+   cart.setAttribute("ondrop", "drop(event)");
+  cart.setAttribute("ondragover", "allowDrop(event)");
+
+    bookCard.append(bookImage);
   bookCard.append(bookCardHead);
   bookCard.append(price);
   descriptionBlock.append(description)
@@ -223,7 +205,6 @@ function createCatalog(book){
 books.forEach(book=>{
   let card = createCatalog(book);
   mainGrid.append(card);
-  console.log(card);
 });
 
 let total = 0;
@@ -258,7 +239,9 @@ function createCartContent(book){
     total = total - bookPrice;
     bookAdded.remove();
     cartTotalPrice.innerHTML = 'Total price:' + total;
-    console.log(total)
+    count--;
+    cartcount.innerHTML = `<h2>${count}</h2>`;
+
   }
   cartTotalPrice.innerHTML = 'Total price:' + total;
 
@@ -289,14 +272,18 @@ header.append(cartContent);
 
 let buyAction = document.querySelectorAll(".btn-buy");
 
-let count = 1;
+let count = 0;
 for(let x of buyAction){
 x.addEventListener("click", addToCart);
 function addToCart(event){
   x.innerHTML = "In Cart";
+  count++;
+  if(count === 0){
+    cartTotalPrice.remove();
+  }
   cartcount.innerHTML = `<h2>${count}</h2>`;
-  ++ count;
   cartContent.classList.add("cart-content-show");
+
   }
   }
 
@@ -321,29 +308,35 @@ y.addEventListener("click", showDescription);
 
 let imgeToDrag = document.querySelectorAll(".book-image");
 
+
 for(let el of imgeToDrag){
-function allowDrop(ev) {
-  ev.preventDefault();
+
+ function allowDrop(event) {
+  event.preventDefault();
 }
 
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+
 }
 
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text");
+  count++;
   cartcount.innerHTML = `<h2>${count}</h2>`;
-   ++ count;
    cartContent.classList.add("cart-content-show");
-   match();
+
+    for(let x=0; x<books.length; x++){
+     if(el.dataset.image === books[x].author){
+
+      let bookToDragToCart =  createCartContent(books[x]);
+        cartContent.append(bookToDragToCart);
+   }
+
+}
   }
   }
-
-
-
-
-
 
 
   document.querySelector(".confirm-btn").onclick = function () {
