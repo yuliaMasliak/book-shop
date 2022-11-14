@@ -73,5 +73,10 @@ body {
     border: 1px solid red;
   }
   #error, #error1, #error2, #error3, #error4, #error5 { color: red };
-
+#result{
+  visibility: hidden;
+}
+.show-result{
+  visibility: visible;
+}
 

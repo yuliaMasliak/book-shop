@@ -36,7 +36,7 @@
               <fieldset>
 
                 <label for="gift">Please, choose two gifts? <br><br> Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.
-                  <select id="gift" name="gift" multiple>
+                  <select id="gift" name="gift" multiple onchange=selectedOptions()>
                     <option value="">(select two)</option>
                     <option value="1"><checkpoint>free pack</checkpoint></option>
                     <option value="2">postcard</option>
@@ -46,8 +46,17 @@
                 </label>
 
               </fieldset>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" onclick=showResult/>
             </form>
+            <div id="result">
+              <div id="result-name"></div>
+              <div id="result-surname"></div>
+              <div id="result-date"></div>
+              <div id="result-street"></div>
+              <div id="result-house"></div><div id="result-flat"></div>
+
+              <div id="result-selected"></div>
+            </div>
           </body>
           <script src="script.js"></script>
         </html>

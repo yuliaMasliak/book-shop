@@ -181,7 +181,6 @@ function createCatalog(book){
   bookImage.innerHTML = `<img src=${book.imageLink}></img>`;
   bookImage.classList.add("book-image");
   bookImage.setAttribute('data-image', `${book.author}`)
-  console.log(bookImage)
   bookImage.setAttribute("draggable", "true");
   bookImage.setAttribute("ondragstart", "drag(event)");
   bookImage.addEventListener("click", allowDrop);
@@ -306,9 +305,8 @@ y.addEventListener("click", showDescription);
   }
 
 let imgeToDrag = document.querySelectorAll(".book-image");
-
-
 for(let el of imgeToDrag){
+  console.log(el);
   function drop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("text");
@@ -316,10 +314,11 @@ for(let el of imgeToDrag){
     cartcount.innerHTML = `<h2>${count}</h2>`;
      cartContent.classList.add("cart-content-show");
 
-   for(let i=0; i<books.length; i++){
-   if(el.dataset.image === books[i].author){
-         let bookToDragToCart = createCartContent(books[i]);
-         console.log(books[i]);
+   for(let book of books){
+   if(el.dataset.image === book.author){
+    console.log(book.author);
+         let bookToDragToCart = createCartContent(book);
+         console.log(book);
          console.log(el);
 
          cartContent.append(bookToDragToCart);

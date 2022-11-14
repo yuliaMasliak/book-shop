@@ -89,3 +89,40 @@ inputFlat.onfocus = function() {
     error5.innerHTML = "";
   }
 }
+
+let resultName = document.querySelector("#result-name")
+inputName.oninput = function() {
+  resultName.innerHTML = inputName.value;
+  };
+
+  let resultSurname = document.querySelector("#result-surname")
+inputSurname.oninput = function() {
+  resultSurname.innerHTML = inputSurname.value;
+  };
+
+  let resultDate = document.querySelector("#result-date")
+  inputDate.oninput = function() {
+    resultDate.innerHTML = inputDate.value;
+    };
+
+    let resultStreet = document.querySelector("#result-street")
+    inputStreet.oninput = function() {
+      resultStreet.innerHTML = inputStreet.value;
+      };
+      let resultHouse = document.querySelector("#result-house")
+      inputHouse.oninput = function() {
+        resultHouse.innerHTML = inputHouse.value;
+        };
+        let resultFlat = document.querySelector("#result-flat")
+      inputFlat.oninput = function() {
+        resultFlat.innerHTML = inputFlat.value;
+        };
+  //   let inputSelect = document.getElementById("gift");
+  //  function selectedOptions(){
+  //   let resultSelect = document.querySelector("#result-selected")
+  //   inputSelect.oninput = function() {
+  //     resultSelect.innerHTML = inputSelect.value;
+  //   }};
+  function showResult(event){
+    getElementById("result").classList.add("show-result");
+  }
