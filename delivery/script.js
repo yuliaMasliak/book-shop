@@ -90,39 +90,30 @@ inputFlat.onfocus = function() {
   }
 }
 
-let resultName = document.querySelector("#result-name")
-inputName.oninput = function() {
-  resultName.innerHTML = inputName.value;
-  };
+let resultDiv = document.querySelector(".result");
 
-  let resultSurname = document.querySelector("#result-surname")
-inputSurname.oninput = function() {
-  resultSurname.innerHTML = inputSurname.value;
-  };
+function createOrderResult(){
+  let divResult = document.createElement("div");
+  let resultName = document.createElement("div");
+  resultName.innerHTML = `Name: ${inputName.value}`;
+  let resultSurname = document.createElement("div");
+  resultSurname.innerHTML = `Surname: ${inputSurname.value}`;
 
-  let resultDate = document.querySelector("#result-date")
-  inputDate.oninput = function() {
-    resultDate.innerHTML = `Delivery date: ${inputDate.value}`;
-    };
+  divResult.append(resultName);
+  divResult.append(resultSurname);
 
-    let resultStreet = document.querySelector("#result-street")
-    inputStreet.oninput = function() {
-      resultStreet.innerHTML = `Street: ${inputStreet.value}`;
-      };
-      let resultHouse = document.querySelector("#result-house")
-      inputHouse.oninput = function() {
-        resultHouse.innerHTML = `House: ${inputHouse.value}`;
-        };
-        let resultFlat = document.querySelector("#result-flat")
-      inputFlat.oninput = function() {
-        resultFlat.innerHTML = `Flat number: ${inputFlat.value}`;       };
+  resultDiv.append(divResult);
+}
 
 
-  let resultDiv = document.querySelector(".hide-result");
+
+let resultDivToShow = document.querySelector(".hide-result");
   let submitBtn = document.querySelector(".submit-btn");
   let orderPage = document.querySelector(".order-show");
   submitBtn.addEventListener("click", showResult)
   function showResult(event){
-    resultDiv.setAttribute("style", "display: block!important");
+    event.preventDefault();
+    resultDivToShow.setAttribute("style", "display: block!important");
     orderPage.classList.add("order-hidden");
+    createOrderResult();
   }
