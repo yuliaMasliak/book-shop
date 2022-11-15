@@ -71,7 +71,7 @@ inputStreet.onfocus = function() {
 
 let inputHouse = document.getElementById("house");
 inputHouse.onblur = function(){
-  if(inputHouse.value < 0){
+  if(inputHouse.value < 0 || inputHouse.value.length < 1){
     inputHouse.classList.add("error");
       error4.innerHTML = 'The field is invalid'
   }
@@ -85,7 +85,7 @@ inputHouse.onfocus = function() {
 
 let inputFlat = document.getElementById("flat");
 inputFlat.onblur = function(){
-  if(inputFlat.value < 0){
+  if(inputFlat.value < 0 || inputFlat.value.length < 1){
     inputFlat.classList.add("error");
       error5.innerHTML = 'The field is invalid'
   }
@@ -133,7 +133,7 @@ let resultDivToShow = document.querySelector(".hide-result");
   function enableSubmit(){
     let inputs = document.getElementsByClassName('required');
 
-    let btn = document.querySelector('input[type="submit"]');
+    let btn = document.querySelector('.submit-btn');
     let isValid = true;
     for (let i = 0; i < inputs.length; i++){
     let changedInput = inputs[i];
@@ -143,4 +143,5 @@ let resultDivToShow = document.querySelector(".hide-result");
     }
     }
     btn.disabled = !isValid;
+
     }

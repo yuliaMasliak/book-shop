@@ -50,7 +50,7 @@ body {
 
 
 
-  input[type="submit"] {
+  .submit-btn {
     display: block;
     width: 60%;
     margin: 1em auto;
@@ -58,8 +58,9 @@ body {
     font-size: 1.1rem;
     background-color: #3b3b4f;
     border-color: white;
+    border-radius: 6px;
     min-width: 300px;
-    color: #f5f6f7;
+    color: #bbbcbd;
   }
   input[type="radio"]{
     max-height: 10px;
@@ -126,4 +127,12 @@ legend{
   font-weight: 400;
   font-size: 30px;
   line-height: 60px;
+}
+
+.submit-btn:hover{
+  background-color:white;
+  color:#0a0a23;
+  border: 1px solid #0a0a23;
+  font-weight: 700;
+
 }
