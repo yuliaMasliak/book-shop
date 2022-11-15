@@ -26,27 +26,34 @@ inputSurname.onfocus = function() {
     }
   };
 
-const today = new Date();
-let tommorow = new Date();
+let today = new Date();
+let tommorow = new Date(today);
 tommorow.setDate(today.getDate() + 1)
+
+console.log(tommorow)
 
 
 document.getElementById("date").setAttribute('min', tommorow);
+let dateLimit = document.createElement('p');
+dateLimit.innerHTML = `Not earlier then ${tommorow}`
+document.querySelector(".date-not-earlier").append(dateLimit);
+
 
 let inputDate = document.getElementById("date");
 
-// inputDate.onblur = function(){
-//     if(inputDate.value < (today.getDate() + 1)){
-//         inputSurname.classList.add("error");
-//         error2.innerHTML = 'Not earlier then tommorow'
-//     }
-// }
-// inputDate.onfocus = function() {
-//     if (this.classList.contains('error')) {
-//        this.classList.remove('error');
-//       error2.innerHTML = "";
-//     }
-//   };
+inputDate.onblur = function(){
+
+    if(inputDate.value < tommorow){
+        inputSurname.classList.add("error");
+        error2.innerHTML = 'Not earlier then tommorow'
+    }
+}
+inputDate.onfocus = function() {
+    if (this.classList.contains('error')) {
+       this.classList.remove('error');
+      error2.innerHTML = "";
+    }
+  };
 
 let inputStreet = document.getElementById("street");
 inputStreet.onblur = function(){
@@ -94,13 +101,18 @@ let resultDiv = document.querySelector(".result");
 
 function createOrderResult(){
   let divResult = document.createElement("div");
+  divResult.classList.add("result-info")
   let resultName = document.createElement("div");
   resultName.innerHTML = `Name: ${inputName.value}`;
   let resultSurname = document.createElement("div");
   resultSurname.innerHTML = `Surname: ${inputSurname.value}`;
+  let resultAdress = document.createElement("div");
+  resultAdress.innerHTML = `Street: ${inputStreet.value}, house: ${inputHouse.value}, flat: ${inputFlat.value}`;
+
 
   divResult.append(resultName);
   divResult.append(resultSurname);
+  divResult.append(resultAdress);
 
   resultDiv.append(divResult);
 }
@@ -117,3 +129,18 @@ let resultDivToShow = document.querySelector(".hide-result");
     orderPage.classList.add("order-hidden");
     createOrderResult();
   }
+
+  function enableSubmit(){
+    let inputs = document.getElementsByClassName('required');
+
+    let btn = document.querySelector('input[type="submit"]');
+    let isValid = true;
+    for (let i = 0; i < inputs.length; i++){
+    let changedInput = inputs[i];
+    if (changedInput.value.trim() === "" || changedInput.value === null){
+    isValid = false;
+    break;
+    }
+    }
+    btn.disabled = !isValid;
+    }
