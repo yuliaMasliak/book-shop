@@ -2,7 +2,7 @@ let inputName = document.getElementById("first-name");
 inputName.onblur = function(){
     if(inputName.value.length<4 || inputName.value.includes(" ") || /\d/.test(inputName.value)){
         inputName.classList.add("error");
-        error.innerHTML = 'The field is invalid'
+        error.innerHTML = 'Please, eneter full name (not less than 4 characters)'
     }
 }
 inputName.onfocus = function() {
@@ -16,7 +16,7 @@ inputName.onfocus = function() {
   inputSurname.onblur = function(){
     if(inputSurname.value.length<5 || inputSurname.value.includes(" ") || /\d/.test(inputSurname.value)){
         inputSurname.classList.add("error");
-        error1.innerHTML = 'The field is invalid'
+        error1.innerHTML = 'Please, eneter full last name (not less than 5 characters)'
     }
 }
 inputSurname.onfocus = function() {
@@ -62,7 +62,7 @@ let inputStreet = document.getElementById("street");
 inputStreet.onblur = function(){
   if(inputStreet.value.length<5){
     inputStreet.classList.add("error");
-      error3.innerHTML = 'The field is invalid'
+      error3.innerHTML = 'Please, eneter full street name (not less than 5 characters)'
   }
 }
 inputStreet.onfocus = function() {
@@ -76,7 +76,7 @@ let inputHouse = document.getElementById("house");
 inputHouse.onblur = function(){
   if(inputHouse.value < 0 || inputHouse.value.length < 1){
     inputHouse.classList.add("error");
-      error4.innerHTML = 'The field is invalid'
+      error4.innerHTML = 'The field is invalid. Please, eneter numbers only'
   }
 }
 inputHouse.onfocus = function() {
@@ -87,12 +87,27 @@ inputHouse.onfocus = function() {
 }
 
 let inputFlat = document.getElementById("flat");
-inputFlat.onblur = function(){
-  if(inputFlat.value < 0 || inputFlat.value.length < 1){
-    inputFlat.classList.add("error");
-      error5.innerHTML = 'The field is invalid'
-  }
+if(inputFlat.value.includes(String.fromCharCode(45))
+|| inputFlat.value.includes(String.fromCharCode(47))) {
+inputFlat.checkValidity();}
+else{
+  !inputFlat.checkValidity();
 }
+
+
+inputFlat.onblur = function(){
+for(let char of inputFlat.value){
+
+     if (char.charCodeAt() != 45  && char.charCodeAt() > 31 && (char.charCodeAt() < 47 || char.charCodeAt() > 57)){
+     inputFlat.classList.add("error");
+     error5.innerHTML = 'The field is invalid. Please, eneter numbers, "-", "/" signs only, starting from number'}}
+    if(inputFlat.value.length < 1  || inputFlat.value.startsWith("-") || inputFlat.value.startsWith("/")){
+      inputFlat.classList.add("error");
+      error5.innerHTML = 'The field is invalid. Please, eneter numbers, "-", "/" signs only, starting from number'
+     }
+     }
+
+
 inputFlat.onfocus = function() {
   if (this.classList.contains('error')) {
      this.classList.remove('error');
@@ -111,11 +126,18 @@ function createOrderResult(){
   resultSurname.innerHTML = `Surname: ${inputSurname.value}`;
   let resultAdress = document.createElement("div");
   resultAdress.innerHTML = `Street: ${inputStreet.value}, house: ${inputHouse.value}, flat: ${inputFlat.value}`;
+  let resultDeliveryDate = document.createElement("div");
+  resultDeliveryDate.innerHTML = `Delivery date: ${inputDate.value}`;
+  let thanks = document.createElement("div");
+  thanks.classList.add("result-title");
+  thanks.innerHTML = `Thank You!`;
 
 
   divResult.append(resultName);
   divResult.append(resultSurname);
   divResult.append(resultAdress);
+  divResult.append(resultDeliveryDate);
+  divResult.append(thanks);
 
   resultDiv.append(divResult);
 }

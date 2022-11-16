@@ -18,7 +18,7 @@
             <div class="order-show">
             <h1>Order Confirmation</h1>
             <p>Please fill out this form with the required information</p>
-            <form method="post">
+            <form method="post" action="https://yuliamasliak.github.io/book-shop/">
               <fieldset>
                 <label for="first-name">Enter Your First Name: <input id="first-name" name="first-name" type="text" required pattern="[a-z]{4,}" class="required" onkeyup="enableSubmit()"/></label>
                 <div id="error"></div>
@@ -34,13 +34,13 @@
                 <label for="house">Enter House Number: <input id="house" name="house" type="number" pattern="[0-1000]" required class="required" onkeyup="enableSubmit()"/></label>
                 <div id="error4"></div>
 
-                <label for="flat">Enter Flat Number: <input id="flat" name="flat" type="number" pattern="[0-1000/-]" required class="required" onkeyup="enableSubmit()" pattern="[1-9/-]"/></label>
+                <label for="flat">Enter Flat Number: <input id="flat" name="flat" type="text" required class="required" onkeyup="enableSubmit()" /></label>
                 <div id="error5"></div>
               </fieldset>
               <fieldset>
                 <legend>Choose payment type</legend>
-                <label for="payment" ><input id="payment-cash" type="radio" name="payment"  /> Cash</label>
-                <label for="payment"><input id="payment-card" type="radio" name="payment"  class="radio-right"/> Card</label>
+                <label for="payment" ><input id="payment-cash" type="radio" name="payment"  class="required" required required class="required" onkeyup="enableSubmit()" checked/> Cash</label>
+                <label for="payment"><input id="payment-card" type="radio" name="payment"  class="radio-right"  /> Card</label>
               </fieldset>
               <fieldset>
 
