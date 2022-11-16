@@ -49,8 +49,24 @@ let mainGrid = document.createElement('div');
 mainGrid.classList.add("main-grid");
 main.append(mainGrid);
 wrapper.append(main);
+let cartContent = document.createElement('div');
+cartContent.classList.add("cart-content");
+
+let cartTotalPrice = document.createElement('div');
+  cartTotalPrice.classList.add("cart-total-price");
+
+  let confirmBtn = document.createElement('button');
+  confirmBtn.classList.add("confirm-btn");
+  confirmBtn.innerHTML = 'Confirm Order';
+  let hr = document.createElement('hr');
+  cartContent.insertAdjacentElement("beforeEnd", cartTotalPrice);
+  cartContent.insertAdjacentElement("beforeEnd", confirmBtn);
+  cartContent.insertAdjacentElement("beforeEnd", hr);
+
+header.append(cartContent);
 
 fragment.appendChild(wrapper);
+
 document.body.appendChild(fragment);
 
 let books = [{
@@ -248,42 +264,18 @@ function createCartContent(book){
   return bookAdded;
 }
 
-
-let cartContent = document.createElement('div');
-cartContent.classList.add("cart-content");
-
-let cartTotalPrice = document.createElement('div');
-  cartTotalPrice.classList.add("cart-total-price");
-
-  let confirmBtn = document.createElement('button');
-  confirmBtn.classList.add("confirm-btn");
-  confirmBtn.innerHTML = 'Confirm Order';
-  let hr = document.createElement('hr');
-  cartContent.insertAdjacentElement("beforeEnd", cartTotalPrice);
-  cartContent.insertAdjacentElement("beforeEnd", confirmBtn);
-  cartContent.insertAdjacentElement("beforeEnd", hr);
-
-
-header.append(cartContent);
-
-
-
-
-
 let buyAction = document.querySelectorAll(".btn-buy");
 
 let count = 0;
 for(let x of buyAction){
 x.addEventListener("click", addToCart);
 function addToCart(event){
-  x.innerHTML = "In Cart";
+
   count++;
-  if(count === 0){
-    cartTotalPrice.remove();
-  }
+
   cartcount.innerHTML = `<h2>${count}</h2>`;
   cartContent.classList.add("cart-content-show");
-  }
+   }
   }
 
 
@@ -314,12 +306,12 @@ for(let el of imgeToDrag){
 
     let dataSlice = data.slice(32);
     let sliceInt = dataSlice.match(/\d+/)[0];
-
     count++;
     cartcount.innerHTML = `<h2>${count}</h2>`;
      cartContent.classList.add("cart-content-show");
          let bookToDragToCart = createCartContent(books[sliceInt-1]);
          cartContent.append(bookToDragToCart);
+
     }}
 
 
@@ -330,6 +322,8 @@ for(let el of imgeToDrag){
 function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
  }
+
+
 
   document.querySelector(".confirm-btn").onclick = function () {
     location.href = "delivery/index.html";
