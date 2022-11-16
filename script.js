@@ -175,7 +175,7 @@ function createCatalog(book){
   }
 
   let btnLearn = document.createElement('button');
-  btnLearn.innerHTML = "Learn more";
+  btnLearn.innerHTML = "Show more";
   btnLearn.classList.add("btn-learn");
 
   let bookImage = document.createElement('div');
