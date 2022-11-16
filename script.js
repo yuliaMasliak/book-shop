@@ -306,23 +306,19 @@ y.addEventListener("click", showDescription);
 
 let imgeToDrag = document.querySelectorAll(".book-image");
 for(let el of imgeToDrag){
-  console.log(el);
+
   function drop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("text");
+    let num = (data[data.length-5]);
+    let num1 = Number(num)
+
     count++;
     cartcount.innerHTML = `<h2>${count}</h2>`;
      cartContent.classList.add("cart-content-show");
-
-   for(let book of books){
-   if(el.dataset.image === book.author){
-    console.log(book.author);
-         let bookToDragToCart = createCartContent(book);
-         console.log(book);
-         console.log(el);
-
+         let bookToDragToCart = createCartContent(books[num1-1]);
          cartContent.append(bookToDragToCart);
-    }}}
+    }}
 
 
  function allowDrop(event) {
@@ -332,9 +328,6 @@ for(let el of imgeToDrag){
 function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
  }
-
-
-}
 
   document.querySelector(".confirm-btn").onclick = function () {
     location.href = "delivery/index.html";
