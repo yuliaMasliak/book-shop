@@ -38,12 +38,13 @@ position: relative;
 }
 .wrapper{
     margin: 0px auto;
-    margin-top: 90px;
+    margin-top: 120px;
     margin-bottom: 70px;
     max-width: 1160px;
     background-color: #1b1b32;
     color: white;
     border-radius: 8px;
+    box-shadow: rgba(225, 224, 224, 0.24) 3px 3px 15px;
 }
 .back {
   max-height: 300px;
@@ -54,6 +55,7 @@ position: relative;
 }
 .wrapper h1{
   font-size: 56px;
+  margin-top: 23px;
 }
 .logo img{
   margin-top: 15px;
@@ -76,10 +78,10 @@ position: relative;
     padding: 10px;
     position: relative;
     margin: 0px auto;
-    top: -240px;
+    top: -250px;
     backdrop-filter: blur(10px);
     border-radius: 10px;
-}
+    }
 
 .main-grid{
     display: grid;
