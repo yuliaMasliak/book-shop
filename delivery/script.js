@@ -30,21 +30,24 @@ let today = new Date();
 let tommorow = new Date(today);
 tommorow.setDate(today.getDate() + 1)
 
-console.log(tommorow)
+let tomorrowString = tommorow.toString();
+tomorrowForDate = Number(tomorrowString.slice(8,10));
+console.log(typeof(tomorrowForDate));
 
-
-document.getElementById("date").setAttribute('min', tommorow);
+document.getElementById("date").setAttribute('min', `2022-11-${tomorrowForDate}`);
+document.getElementById("date").setAttribute('value', `2022-11-${tomorrowForDate}`);
 let dateLimit = document.createElement('p');
 dateLimit.innerHTML = `Not earlier then ${tommorow}`
 document.querySelector(".date-not-earlier").append(dateLimit);
 
-
-let inputDate = document.getElementById("date");
+inputDate = document.getElementById("date"); // gets element
+valueCheck = inputDateCheck.value; // form value (string)
+let dateCheck = new Date(valueCheck); // converts string to date object
 
 inputDate.onblur = function(){
 
-    if(inputDate.value < tommorow){
-        inputSurname.classList.add("error");
+    if(tommorow > dateCheck){
+        inputDate.classList.add("error");
         error2.innerHTML = 'Not earlier then tommorow'
     }
 }
