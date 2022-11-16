@@ -44,7 +44,6 @@ position: relative;
     background-color: #1b1b32;
     color: white;
     border-radius: 8px;
-    box-shadow: rgba(225, 224, 224, 0.24) 3px 3px 15px;
 }
 .back {
   max-height: 300px;
@@ -235,6 +234,7 @@ top: 50px;
 font-family: 'Quicksand', sans-serif;
 font-weight: 500;
 font-size: 16px;
+box-shadow: rgba(225, 224, 224, 0.24) 0px 3px 8px;
 }
 
 .btn-buy:hover{
@@ -258,6 +258,8 @@ font-size: 16px;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   font-size: 16px;
+  box-shadow: rgba(225, 224, 224, 0.24) 0px 3px 8px;
+
 }
 
 
