@@ -310,13 +310,14 @@ for(let el of imgeToDrag){
   function drop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("text");
-    let num = (data[data.length-5]);
-    let num1 = Number(num)
+
+    let dataSlice = data.slice(32);
+    let sliceInt = dataSlice.match(/\d+/)[0];
 
     count++;
     cartcount.innerHTML = `<h2>${count}</h2>`;
      cartContent.classList.add("cart-content-show");
-         let bookToDragToCart = createCartContent(books[num1-1]);
+         let bookToDragToCart = createCartContent(books[sliceInt-1]);
          cartContent.append(bookToDragToCart);
     }}
 
