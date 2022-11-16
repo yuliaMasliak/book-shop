@@ -136,3 +136,10 @@ legend{
   font-weight: 700;
 
 }
+.date-limit{
+  text-align: left;
+  font-style: italic;
+  color:aquamarine;
+  font-size: smaller;
+  font-family: 'Courier New', Courier, monospace;
+}
