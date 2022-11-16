@@ -8,7 +8,8 @@ headerDiv.classList.add("header-div");
 
 let logo = document.createElement('div');
 logo.classList.add("logo");
-logo.innerHTML = '<a href="index.html"><img src="images/logo.png" alt="logo" ></img></a>'
+logo.innerHTML = '<a href="index.html"><img src="images/logo-gif.gif" alt="logo" ></img></img></a>'
+
 
 let cart = document.createElement('div');
 cart.classList.add("cart");
