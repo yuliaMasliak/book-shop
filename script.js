@@ -257,7 +257,10 @@ function createCartContent(book){
     cartTotalPrice.innerHTML = 'Total price: $ ' + total;
     count--;
     cartcount.innerHTML = `<h2>${count}</h2>`;
-
+    if(count===0){
+    cartContent.classList.remove("cart-content-show");
+    cartcount.innerHTML = ``;
+  }
   }
   cartTotalPrice.innerHTML = 'Total price: $ ' + total;
 
