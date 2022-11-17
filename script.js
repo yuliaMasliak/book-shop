@@ -326,7 +326,10 @@ function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
  }
 
-
+ cart.addEventListener("click", showHide);
+ function showHide(event){
+  cartContent.classList.toggle("cart-content-show");
+ }
 
   document.querySelector(".confirm-btn").onclick = function () {
     location.href = "delivery/index.html";

@@ -27,6 +27,7 @@ body{
   top: 60px;
 }
 .cart {
+  cursor: pointer;
 top: 30px;
 right: 40px;
 position: relative;
@@ -216,6 +217,15 @@ font-size: 14px;
 padding: 10px;
 overflow: scroll;
 max-height: 500px;
+  }
+  .cart-content-show::-webkit-scrollbar {
+    width: 15px;
+  }
+  .cart-content-show::-webkit-scrollbar-thumb {
+    background-color: #3a888f;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
   }
 
 .btn-buy{
