@@ -119,7 +119,7 @@ let validPay=false;
 let paymentCash = document.getElementById("payment-cash");
 let paymentCard = document.getElementById("payment-card");
 
-let payments = document.querySelectorAll(".check");
+
 
 paymentCard.addEventListener("change", function () {
       if (paymentCard.checked) {
