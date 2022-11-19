@@ -144,6 +144,12 @@ legend{
   font-size: smaller;
   font-family: 'Courier New', Courier, monospace;
 }
+.show-result{
+  display: block;
+}
+article{
+  display: none;
+}
 .close-btn{
   margin-top: 10px;
   margin-bottom: 20px;

@@ -121,10 +121,10 @@ let paymentCard = document.getElementById("payment-card");
 
 let payments = document.querySelectorAll(".check");
 
-paymentCard.addEventListener("onkeyup", function () {
+paymentCard.addEventListener("change", function () {
       if (paymentCard.checked) {
         validPay = true;}});
-paymentCash.addEventListener("onkeyup", function () {
+paymentCash.addEventListener("change", function () {
           if (paymentCash.checked) {
             validPay = true;}});
 
@@ -151,8 +151,8 @@ closeBtn.classList.add("close-btn");
 closeBtn.innerHTML = "Close";
 closeBtn.addEventListener("click", (event)=>{
   event.preventDefault();
-  resultDivToShow.removeAttribute("style");
-  resultDivToShow.setAttribute("style", "display: none");
+  resultDivToShow.removeAttribute("class",
+  "show-result");
   orderPage.classList.remove("order-hidden");
 })
 
@@ -169,14 +169,17 @@ closeBtn.addEventListener("click", (event)=>{
 
 
 let resultDivToShow = document.querySelector(".hide-result");
+let resultDivShow = document.querySelector(".result");
   let submitBtn = document.querySelector(".submit-btn");
   let orderPage = document.querySelector(".order-show");
   submitBtn.addEventListener("click", showResult)
   function showResult(event){
     event.preventDefault();
-    resultDivToShow.setAttribute("style", "display: block!important");
+    resultDivToShow.classList.toggle("show-result");
     orderPage.classList.add("order-hidden");
+    resultDivShow.innerHTML = "";
     createOrderResult();
+
   }
 
   function enableSubmit(){
