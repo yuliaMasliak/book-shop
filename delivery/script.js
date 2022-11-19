@@ -115,6 +115,21 @@ inputFlat.onfocus = function() {
   }
 }
 
+let validPay = false;
+let paymentCash = document.getElementById("payment-cash");
+let paymentCard = document.getElementById("payment-card");
+
+let payments = document.querySelectorAll(".check");
+
+paymentCard.addEventListener("onkeyup", function () {
+      if (paymentCard.checked) {
+        validPay = true;}});
+paymentCash.addEventListener("onkeyup", function () {
+          if (paymentCash.checked) {
+            validPay = true;}});
+
+
+            console.log(validPay)
 let resultDiv = document.querySelector(".result");
 
 function createOrderResult(){
@@ -131,13 +146,22 @@ function createOrderResult(){
   let thanks = document.createElement("div");
   thanks.classList.add("result-title");
   thanks.innerHTML = `Thank You!`;
-
+let closeBtn = document.createElement("button");
+closeBtn.classList.add("close-btn");
+closeBtn.innerHTML = "Close";
+closeBtn.addEventListener("click", (event)=>{
+  event.preventDefault();
+  resultDivToShow.removeAttribute("style");
+  resultDivToShow.setAttribute("style", "display: none");
+  orderPage.classList.remove("order-hidden");
+})
 
   divResult.append(resultName);
   divResult.append(resultSurname);
   divResult.append(resultAdress);
   divResult.append(resultDeliveryDate);
   divResult.append(thanks);
+  divResult.append(closeBtn);
 
   resultDiv.append(divResult);
 }
@@ -162,7 +186,7 @@ let resultDivToShow = document.querySelector(".hide-result");
     let isValid = true;
     for (let i = 0; i < inputs.length; i++){
     let changedInput = inputs[i];
-    if (changedInput.value.trim() === "" || changedInput.value === null){
+    if (changedInput.value.trim() === "" || changedInput.value === null || !validPay){
     isValid = false;
     break;
     }

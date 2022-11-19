@@ -144,3 +144,23 @@ legend{
   font-size: smaller;
   font-family: 'Courier New', Courier, monospace;
 }
+.close-btn{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 40px;
+  width: 150px;
+    border-radius: 7px;
+    background-color: #0a0a23;
+    border: 1px solid #0a0a23;
+    color:antiquewhite;
+   font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+.close-btn:hover{
+  cursor: pointer;
+  background-color:#FFE787;
+   border: 2px solid #0a0a23;
+   color: #0a0a23;
+   font-weight: 700;
+ }
