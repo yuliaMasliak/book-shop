@@ -28,7 +28,11 @@
                 <label for="date" class="date-not-earlier">Enter Delivery Date: <input id="date" name="date" type="date" required class="required" onkeyup="enableSubmit()"/></label>
                 <div id="error2"></div>
 
-                <label for="street">Enter Street: <input id="street" name="street" type="text" pattern="[a-z0-5]{8,}" required class="required" onkeyup="enableSubmit()"/></label>
+                <div class="label-margin">Choose payment type</div>
+                <label for="payment" ><input id="payment-cash" class="check" type="radio" name="payment"  class="required" required onkeyup="enableSubmit()" /> Cash</label>
+                <label for="payment" ><input id="payment-card" class="required" class="check" type="radio" name="payment"  class="radio-right" onkeyup="enableSubmit()" required /> Card</label>
+
+                <label class="block-label" class="label-margin" for="street">Enter Street: <input id="street" name="street" type="text" pattern="[a-z0-5]{8,}" required class="required" onkeyup="enableSubmit()"/></label>
                 <div id="error3"></div>
 
                 <label for="house">Enter House Number: <input id="house" name="house" type="number" pattern="[0-1000]" required class="required" onkeyup="enableSubmit()"/></label>
@@ -37,11 +41,7 @@
                 <label for="flat">Enter Flat Number: <input id="flat" name="flat" type="text" required class="required" onkeyup="enableSubmit()" /></label>
                 <div id="error5"></div>
               </fieldset>
-              <fieldset>
-                <legend>Choose payment type</legend>
-                <label for="payment" ><input id="payment-cash" class="check" type="radio" name="payment"  class="required" required onkeyup="enableSubmit()" /> Cash</label>
-                <label for="payment"><input id="payment-card" class="check" type="radio" name="payment"  class="radio-right"  /> Card</label>
-              </fieldset>
+
               <fieldset>
 
                 <label for="gift">Please, choose two gifts? <br><br> Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.

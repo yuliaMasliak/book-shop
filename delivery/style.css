@@ -70,8 +70,15 @@ body {
 .radio-right{
   margin-left: 20px;
 }
-legend{
-  margin-bottom: 0px;
+label{
+  margin-bottom: 10px;
+}
+.label-margin{
+  margin-top: 25px;
+}
+.block-label{
+  display: block;
+  margin-top: 25px;
 }
   .error{
     border: 1px solid red;

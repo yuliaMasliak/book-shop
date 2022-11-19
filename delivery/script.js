@@ -115,7 +115,7 @@ inputFlat.onfocus = function() {
   }
 }
 
-let validPay = false;
+let validPay=false;
 let paymentCash = document.getElementById("payment-cash");
 let paymentCard = document.getElementById("payment-card");
 
@@ -123,13 +123,17 @@ let payments = document.querySelectorAll(".check");
 
 paymentCard.addEventListener("change", function () {
       if (paymentCard.checked) {
-        validPay = true;}});
+        validPay = true;
+        console.log(validPay);}});
+
 paymentCash.addEventListener("change", function () {
           if (paymentCash.checked) {
-            validPay = true;}});
+            validPay = true;
+            console.log(validPay);}});
 
 
-            console.log(validPay)
+
+console.log(validPay)
 let resultDiv = document.querySelector(".result");
 
 function createOrderResult(){
@@ -183,17 +187,19 @@ let resultDivShow = document.querySelector(".result");
   }
 
   function enableSubmit(){
-    let inputs = document.getElementsByClassName('required');
+    let inputs = document.querySelectorAll('.required');
 
     let btn = document.querySelector('.submit-btn');
     let isValid = true;
-    for (let i = 0; i < inputs.length; i++){
-    let changedInput = inputs[i];
-    if (changedInput.value.trim() === "" || changedInput.value === null || !validPay){
+    for (let i of inputs){
+
+    console.log(i)
+
+    if (i.value.trim() === "" || i.value === "" || !validPay){
     isValid = false;
-    break;
+        }
     }
-    }
+    console.log(isValid);
     btn.disabled = !isValid;
 
     }
