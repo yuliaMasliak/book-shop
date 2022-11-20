@@ -9,7 +9,14 @@ body {
     text-align: center;
     color: #f5f6f7;
   }
-
+  header{
+    margin: 0 auto;
+max-width: 1160px;;
+  }
+  .logo-gif{
+    margin-top: 15px;
+    height: 100px;
+  }
   form {
     width: 60vw;
     max-width: 500px;
