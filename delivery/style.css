@@ -177,3 +177,7 @@ article{
    color: #0a0a23;
    font-weight: 700;
  }
+ #gift1, #gift2, #gift3, #gift4{
+  width: 10%;
+  border-radius: 10px;
+ }
