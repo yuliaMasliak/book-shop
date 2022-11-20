@@ -137,7 +137,7 @@ label{
   line-height: 60px;
 }
 .submit-btn{
-  cursor: not-allowed;
+  cursor: pointer;
 }
 .date-limit{
   text-align: left;

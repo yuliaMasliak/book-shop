@@ -3,8 +3,9 @@ let inputName = document.getElementById("first-name");
 
 inputName.onblur = function(){
     if(inputName.value.length<4 || inputName.value.includes(" ") || /\d/.test(inputName.value)){
+      isValid = false;
         inputName.classList.add("error");
-        error.innerHTML = 'Please, eneter full name (not less than 4 characters)'
+        error.innerHTML = 'Please, eneter full name (not less than 4 characters)';
     }
 }
 inputName.onfocus = function() {
@@ -19,6 +20,7 @@ inputName.onfocus = function() {
 
   inputSurname.onblur = function(){
     if(inputSurname.value.length<5 || inputSurname.value.includes(" ") || /\d/.test(inputSurname.value)){
+      isValid = false;
         inputSurname.classList.add("error");
         error1.innerHTML = 'Please, eneter full last name (not less than 5 characters)'
     }
@@ -50,6 +52,7 @@ document.querySelector(".date-not-earlier").append(dateLimit);
 inputDate.onblur = function(){
 
     if(!inputDate.checkValidity()){
+      isValid = false;
         inputDate.classList.add("error");
         error2.innerHTML = 'Not earlier then tommorow'
     }
@@ -66,6 +69,7 @@ let inputStreet = document.getElementById("street");
 
 inputStreet.onblur = function(){
   if(inputStreet.value.length<5){
+    isValid = false;
     inputStreet.classList.add("error");
       error3.innerHTML = 'Please, eneter full street name (not less than 5 characters)'
   }
@@ -82,6 +86,7 @@ let inputHouse = document.getElementById("house");
 
 inputHouse.onblur = function(){
   if(inputHouse.value < 0 || inputHouse.value.length < 1){
+    isValid = false;
     inputHouse.classList.add("error");
       error4.innerHTML = 'The field is invalid. Please, eneter numbers only'
   }
@@ -106,6 +111,7 @@ inputFlat.onblur = function(){
 for(let char of inputFlat.value){
 
      if (char.charCodeAt() != 45  && char.charCodeAt() > 31 && (char.charCodeAt() < 47 || char.charCodeAt() > 57)){
+      isValid = false;
      inputFlat.classList.add("error");
      error5.innerHTML = 'The field is invalid. Please, eneter numbers, "-", "/" signs only, starting from number'}}
     if(inputFlat.value.length < 1  || inputFlat.value.startsWith("-") || inputFlat.value.startsWith("/")){
@@ -172,6 +178,7 @@ closeBtn.addEventListener("click", (event)=>{
   resultDivToShow.removeAttribute("class",
   "show-result");
   orderPage.classList.remove("order-hidden");
+  document.location.reload();
 })
 
   divResult.append(resultName);
@@ -210,9 +217,11 @@ let resultDivShow = document.querySelector(".result");
     if (i.value.trim() === "" || i.value === "" || !validPay){
     isValid = false;
     btn.disabled;
+    btn.style.cursor = "not-allowed";
     }
+     btn.disabled = !isValid;
 
-     btn.disabled = !isValid;}
+    }
      if(isValid){
       btn.style.cursor = "pointer";}
   }

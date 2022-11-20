@@ -20,25 +20,25 @@
             <p>Please fill out this form with the required information</p>
             <form method="post" action="https://yuliamasliak.github.io/book-shop/">
               <fieldset>
-                <label for="first-name">Enter Your First Name: <input id="first-name" name="first-name" type="text" required pattern="[a-z]{4,}" class="required" onkeyup="enableSubmit()"/></label>
+                <label for="first-name">Enter Your First Name: <input id="first-name" name="first-name" type="text" required pattern="[a-z]{4,}" class="required" onclick="enableSubmit()"/></label>
                 <div id="error"></div>
-                <label for="last-name">Enter Your Last Name: <input id="last-name" name="last-name" type="text" required class="required" onkeyup="enableSubmit()"/></label>
+                <label for="last-name">Enter Your Last Name: <input id="last-name" name="last-name" type="text" required class="required" onclick="enableSubmit()"/></label>
                 <div id="error1"></div>
 
-                <label for="date" class="date-not-earlier">Enter Delivery Date: <input id="date" name="date" type="date" required class="required" onkeyup="enableSubmit()"/></label>
+                <label for="date" class="date-not-earlier">Enter Delivery Date: <input id="date" name="date" type="date" required class="required" onclick="enableSubmit()"/></label>
                 <div id="error2"></div>
 
                 <div class="label-margin">Choose payment type</div>
-                <label for="payment" ><input id="payment-cash" type="radio" name="payment"  class="required" required onkeyup="enableSubmit()" /> Cash</label>
-                <label for="payment" ><input id="payment-card" class="required radio-right" type="radio" name="payment"  onkeyup="enableSubmit()" required /> Card</label>
+                <label for="payment" ><input id="payment-cash" type="radio" name="payment"  class="required" required onclick="enableSubmit()" /> Cash</label>
+                <label for="payment" ><input id="payment-card" class="required radio-right" type="radio" name="payment"  onclick="enableSubmit()" required /> Card</label>
 
-                <label class="block-label" class="label-margin" for="street">Enter Street: <input id="street" name="street" type="text" pattern="[a-z0-5]{8,}" required class="required" onkeyup="enableSubmit()"/></label>
+                <label class="block-label" class="label-margin" for="street">Enter Street: <input id="street" name="street" type="text" pattern="[a-z0-5]{8,}" required class="required" onclick="enableSubmit()"/></label>
                 <div id="error3"></div>
 
-                <label for="house">Enter House Number: <input id="house" name="house" type="number" pattern="[0-1000]" required class="required" onkeyup="enableSubmit()"/></label>
+                <label for="house">Enter House Number: <input id="house" name="house" type="number" pattern="[0-1000]" required class="required" onclick="enableSubmit()"/></label>
                 <div id="error4"></div>
 
-                <label for="flat">Enter Flat Number: <input id="flat" name="flat" type="text" required class="required" onkeyup="enableSubmit()" /></label>
+                <label for="flat">Enter Flat Number: <input id="flat" name="flat" type="text" required class="required" onclick="enableSubmit()" /></label>
                 <div id="error5"></div>
               </fieldset>
 
