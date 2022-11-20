@@ -42,7 +42,7 @@ tomorrowForDate = Number(tomorrowString.slice(8,10));
 
 let inputDate = document.getElementById("date");
 inputDate.setAttribute('min', `2022-11-${tomorrowForDate}`);
-inputDate.setAttribute('value', `2022-11-${tomorrowForDate}`);
+// inputDate.setAttribute('value', `2022-11-${tomorrowForDate}`);
 
 let dateLimit = document.createElement('p');
 dateLimit.innerHTML = `Not earlier then ${tomorrowString.slice(0, 16)}`;
