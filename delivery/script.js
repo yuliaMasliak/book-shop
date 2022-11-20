@@ -35,14 +35,24 @@ inputSurname.onfocus = function() {
 //Date
 let today = new Date();
 let tommorow = new Date(today);
-tommorow.setDate(today.getDate() + 1)
+tommorow.setDate(today.getDate() + 1);
+console.log(tommorow);
+
 
 let tomorrowString = tommorow.toString();
 tomorrowForDate = Number(tomorrowString.slice(8,10));
+let monthForDate = tomorrowString.slice(4,7);
 
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+for(let i=0; i<months.length; i++){
+  if (monthForDate == months[i]){
+   monthForDate = Number(i+1);
+}}
+
+console.log(monthForDate);
 let inputDate = document.getElementById("date");
-inputDate.setAttribute('min', `2022-11-${tomorrowForDate}`);
-// inputDate.setAttribute('value', `2022-11-${tomorrowForDate}`);
+inputDate.setAttribute('min', `2022-${monthForDate}-${tomorrowForDate}`);
 
 let dateLimit = document.createElement('p');
 dateLimit.innerHTML = `Not earlier then ${tomorrowString.slice(0, 16)}`;
@@ -50,7 +60,6 @@ dateLimit.classList.add('date-limit');
 document.querySelector(".date-not-earlier").append(dateLimit);
 
 inputDate.onblur = function(){
-
     if(!inputDate.checkValidity()){
       isValid = false;
         inputDate.classList.add("error");
@@ -85,7 +94,7 @@ inputStreet.onfocus = function() {
 let inputHouse = document.getElementById("house");
 
 inputHouse.onblur = function(){
-  if(inputHouse.value < 0 || inputHouse.value.length < 1){
+  if(inputHouse.value < 0 || inputHouse.value.length < 1 || inputHouse.value.startsWith("e")){
     isValid = false;
     inputHouse.classList.add("error");
       error4.innerHTML = 'The field is invalid. Please, eneter numbers only'
