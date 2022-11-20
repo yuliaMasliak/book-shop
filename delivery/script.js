@@ -1,4 +1,6 @@
+//Name
 let inputName = document.getElementById("first-name");
+
 inputName.onblur = function(){
     if(inputName.value.length<4 || inputName.value.includes(" ") || /\d/.test(inputName.value)){
         inputName.classList.add("error");
@@ -12,7 +14,9 @@ inputName.onfocus = function() {
     }
   };
 
+  //Surname
   let inputSurname = document.getElementById("last-name");
+
   inputSurname.onblur = function(){
     if(inputSurname.value.length<5 || inputSurname.value.includes(" ") || /\d/.test(inputSurname.value)){
         inputSurname.classList.add("error");
@@ -26,6 +30,7 @@ inputSurname.onfocus = function() {
     }
   };
 
+//Date
 let today = new Date();
 let tommorow = new Date(today);
 tommorow.setDate(today.getDate() + 1)
@@ -42,15 +47,13 @@ dateLimit.innerHTML = `Not earlier then ${tomorrowString.slice(0, 16)}`;
 dateLimit.classList.add('date-limit');
 document.querySelector(".date-not-earlier").append(dateLimit);
 
-
-
 inputDate.onblur = function(){
 
     if(!inputDate.checkValidity()){
         inputDate.classList.add("error");
         error2.innerHTML = 'Not earlier then tommorow'
     }
-}
+    }
 inputDate.onfocus = function() {
     if (this.classList.contains('error')) {
        this.classList.remove('error');
@@ -58,13 +61,15 @@ inputDate.onfocus = function() {
     }
   };
 
+  //Street
 let inputStreet = document.getElementById("street");
+
 inputStreet.onblur = function(){
   if(inputStreet.value.length<5){
     inputStreet.classList.add("error");
       error3.innerHTML = 'Please, eneter full street name (not less than 5 characters)'
   }
-}
+  }
 inputStreet.onfocus = function() {
   if (this.classList.contains('error')) {
      this.classList.remove('error');
@@ -72,20 +77,22 @@ inputStreet.onfocus = function() {
   }
 };
 
+//House
 let inputHouse = document.getElementById("house");
+
 inputHouse.onblur = function(){
   if(inputHouse.value < 0 || inputHouse.value.length < 1){
     inputHouse.classList.add("error");
       error4.innerHTML = 'The field is invalid. Please, eneter numbers only'
   }
-}
+  }
 inputHouse.onfocus = function() {
   if (this.classList.contains('error')) {
      this.classList.remove('error');
     error4.innerHTML = "";
   }
 }
-
+//Flat
 let inputFlat = document.getElementById("flat");
 if(inputFlat.value.includes(String.fromCharCode(45))
 || inputFlat.value.includes(String.fromCharCode(47))) {
@@ -119,8 +126,6 @@ let validPay=false;
 let paymentCash = document.getElementById("payment-cash");
 let paymentCard = document.getElementById("payment-card");
 
-
-
 paymentCard.addEventListener("change", function () {
       if (paymentCard.checked) {
         validPay = true;
@@ -131,11 +136,11 @@ paymentCash.addEventListener("change", function () {
             validPay = true;
             }});
 
-            var checks = document.querySelectorAll(".check");
-            var max = 2;
-            for (var i = 0; i < checks.length; i++) checks[i].onclick = selectiveCheck;
-            function selectiveCheck(event) {
-              var checkedChecks = document.querySelectorAll(".check:checked");
+            let checks = document.querySelectorAll(".check");
+            let max = 2;
+            for (let i = 0; i < checks.length; i++) checks[i].onclick = chosenGifts;
+            function chosenGifts(event) {
+              let checkedChecks = document.querySelectorAll(".check:checked");
               if (checkedChecks.length >= max + 1) {
                 return false;
               }
@@ -192,23 +197,24 @@ let resultDivShow = document.querySelector(".result");
     orderPage.classList.add("order-hidden");
     resultDivShow.innerHTML = "";
     createOrderResult();
-
   }
+
 
   function enableSubmit(){
     let inputs = document.querySelectorAll('.required');
-
     let btn = document.querySelector('.submit-btn');
+
     let isValid = true;
+
     for (let i of inputs){
-
-    console.log(i)
-
     if (i.value.trim() === "" || i.value === "" || !validPay){
     isValid = false;
-        }
+    btn.disabled;
     }
-    console.log(isValid);
-    btn.disabled = !isValid;
 
-    }
+     btn.disabled = !isValid;}
+     if(isValid){
+      btn.style.cursor = "pointer";}
+  }
+
+

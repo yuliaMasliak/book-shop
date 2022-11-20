@@ -136,13 +136,8 @@ label{
   font-size: 30px;
   line-height: 60px;
 }
-
-.submit-btn:hover{
-  background-color:white;
-  color:#0a0a23;
-  border: 1px solid #0a0a23;
-  font-weight: 700;
-
+.submit-btn{
+  cursor: not-allowed;
 }
 .date-limit{
   text-align: left;
@@ -179,5 +174,5 @@ article{
  }
  #gift1, #gift2, #gift3, #gift4{
   width: 10%;
-  border-radius: 10px;
+  border-radius: 8px;
  }
