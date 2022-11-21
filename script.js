@@ -51,13 +51,15 @@ main.append(mainGrid);
 wrapper.append(main);
 let cartContent = document.createElement('div');
 cartContent.classList.add("cart-content");
+cartContent.setAttribute("ondrop", "drop(event)");
+cartContent.setAttribute("ondragover", "allowDrop(event)");
 
 let cartTotalPrice = document.createElement('div');
   cartTotalPrice.classList.add("cart-total-price");
 
   let confirmBtn = document.createElement('button');
   confirmBtn.classList.add("confirm-btn");
-  confirmBtn.innerHTML = 'Confirm Order';
+  confirmBtn.innerHTML = 'Delivery form';
   let hr = document.createElement('hr');
   cartContent.insertAdjacentElement("beforeEnd", cartTotalPrice);
   cartContent.insertAdjacentElement("beforeEnd", confirmBtn);
@@ -203,8 +205,7 @@ function createCatalog(book){
   bookImage.addEventListener("click", allowDrop);
   cart.setAttribute("ondrop", "drop(event)");
   cart.setAttribute("ondragover", "allowDrop(event)");
-  cart.setAttribute("ondrop", "drop(event)");
-  cart.setAttribute("ondragover", "allowDrop(event)");
+
 
     bookCard.append(bookImage);
   bookCard.append(bookCardHead);
@@ -260,16 +261,19 @@ function createCartContent(book){
     if(count===0){
     cartContent.classList.remove("cart-content-show");
     cartcount.innerHTML = ``;
-  }
+    confirmBtn.innerHTML = 'Delivery form'
+      }
   }
   cartTotalPrice.innerHTML = 'Total price: $ ' + total;
 
   return bookAdded;
 }
 
+
 let buyAction = document.querySelectorAll(".btn-buy");
 
 let count = 0;
+
 for(let x of buyAction){
 x.addEventListener("click", addToCart);
 function addToCart(event){
@@ -278,6 +282,7 @@ function addToCart(event){
 
   cartcount.innerHTML = `<h2>${count}</h2>`;
   cartContent.classList.add("cart-content-show");
+  confirmBtn.innerHTML = 'Confirm order'
    }
   }
 
