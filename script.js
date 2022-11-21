@@ -1,5 +1,7 @@
+// add all elements to Fragment
 let fragment = document.createDocumentFragment();
 
+//header
 let header = document.createElement('header');
 header.classList.add("header");
 
@@ -10,7 +12,6 @@ let logo = document.createElement('div');
 logo.classList.add("logo");
 logo.innerHTML = '<a href="index.html"><img src="images/logo-gif.gif" alt="logo" ></img></img></a>'
 
-
 let cart = document.createElement('div');
 cart.classList.add("cart");
 cart.innerHTML = '<img src="images/cart.png" alt="cart" ></img>';
@@ -20,13 +21,14 @@ cart.setAttribute("ondragover", "allowDrop(event)");
 let cartcount = document.createElement('div');
 cartcount.classList.add("cartcount");
 
-
 headerDiv.append(logo);
 headerDiv.append(cartcount);
 headerDiv.append(cart);
 header.append(headerDiv);
 
 fragment.appendChild(header);
+
+//main
 let wrapper = document.createElement('div');
 wrapper.classList.add("wrapper");
 
@@ -69,8 +71,12 @@ header.append(cartContent);
 
 fragment.appendChild(wrapper);
 
+
+// append Fragment to body
 document.body.appendChild(fragment);
 
+
+//functions
 let books = [{
   "author": "Douglas Crockford",
   "imageLink": "images/book1.jpg",
@@ -143,7 +149,7 @@ let books = [{
   }
 ]
 
-
+//create catalog function
 function createCatalog(book){
   let bookCard = document.createElement('div');
   bookCard.classList.add("bookCard");
@@ -189,7 +195,6 @@ function createCatalog(book){
        let cartCard = createCartContent(book);
        cartContent.append(cartCard);
     }
-
   }
 
   let btnLearn = document.createElement('button');
@@ -206,8 +211,7 @@ function createCatalog(book){
   cart.setAttribute("ondrop", "drop(event)");
   cart.setAttribute("ondragover", "allowDrop(event)");
 
-
-    bookCard.append(bookImage);
+  bookCard.append(bookImage);
   bookCard.append(bookCardHead);
   bookCard.append(price);
   descriptionBlock.append(description)
@@ -224,6 +228,7 @@ books.forEach(book=>{
   mainGrid.append(card);
 });
 
+//create cart content function
 let total = 0;
 function createCartContent(book){
   let bookAdded = document.createElement('div');
@@ -261,17 +266,20 @@ function createCartContent(book){
     if(count===0){
     cartContent.classList.remove("cart-content-show");
     cartcount.innerHTML = ``;
-    confirmBtn.innerHTML = 'Delivery form'
+    confirmBtn.innerHTML = 'Delivery form';
       }
   }
   cartTotalPrice.innerHTML = 'Total price: $ ' + total;
-
   return bookAdded;
 }
+cart.addEventListener("click", showHide);
+ function showHide(event){
+  cartContent.classList.toggle("cart-content-show");
+ }
 
 
+//buy-button function
 let buyAction = document.querySelectorAll(".btn-buy");
-
 let count = 0;
 
 for(let x of buyAction){
@@ -282,10 +290,19 @@ function addToCart(event){
 
   cartcount.innerHTML = `<h2>${count}</h2>`;
   cartContent.classList.add("cart-content-show");
-  confirmBtn.innerHTML = 'Confirm order'
+  confirmBtn.innerHTML = 'Confirm order';
    }
   }
 
+
+// show-more button function
+let learnAction = document.querySelectorAll(".btn-learn");
+for(let y of learnAction){
+let closest = y.closest('div');
+y.addEventListener("click", showDescription);
+ function showDescription(event){
+  closest.classList.toggle("descriptionBlock-show");}
+  }
 
   let crosses = document.querySelectorAll(".cross");
   for(let cross of crosses){
@@ -297,14 +314,7 @@ function addToCart(event){
     }
   }
 
-let learnAction = document.querySelectorAll(".btn-learn");
-for(let y of learnAction){
-let closest = y.closest('div');
-y.addEventListener("click", showDescription);
- function showDescription(event){
-  closest.classList.toggle("descriptionBlock-show");}
-  }
-
+//drag&drop functions
 let imgeToDrag = document.querySelectorAll(".book-image");
 for(let el of imgeToDrag){
 
@@ -319,9 +329,8 @@ for(let el of imgeToDrag){
      cartContent.classList.add("cart-content-show");
          let bookToDragToCart = createCartContent(books[sliceInt-1]);
          cartContent.append(bookToDragToCart);
-
+         confirmBtn.innerHTML = 'Confirm order';
     }}
-
 
  function allowDrop(event) {
   event.preventDefault();
@@ -331,11 +340,7 @@ function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
  }
 
- cart.addEventListener("click", showHide);
- function showHide(event){
-  cartContent.classList.toggle("cart-content-show");
- }
-
+ // Delivery form
   document.querySelector(".confirm-btn").onclick = function () {
     location.href = "delivery/index.html";
   };
